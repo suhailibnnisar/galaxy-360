@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 const AddStudent: React.FC = () => {
   return (
@@ -431,7 +431,7 @@ const AddStudent: React.FC = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AddStudent
+export default AddStudent;
