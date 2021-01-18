@@ -10,7 +10,7 @@ const AddStudent: React.FC = () => {
           </div>
 
           <div
-            tabindex="0"
+            tabIndex={0}
             className="relative flex-1 flex flex-col max-w-xs w-full bg-white focus:outline-none"
           >
             <div className="absolute top-0 right-0 -mr-12 pt-2">
@@ -416,7 +416,7 @@ const AddStudent: React.FC = () => {
         </div>
         <div className="flex-1 relative z-0 flex overflow-hidden">
           <main
-            tabindex="0"
+            tabIndex={0}
             className="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last"
           >
             <div className="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8">
