@@ -150,8 +150,8 @@ const index = () => {
             </div>
           </div>
 
+          {/* Student gender radio buttons */}
           <div className="my-5">
-            {/* Student gender radio buttons */}
             <p className="text-lg font-extrabold leading-6 text-gray-900 mb-1">
               Title
             </p>
