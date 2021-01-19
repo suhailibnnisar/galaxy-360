@@ -94,6 +94,23 @@ const SidebarStudentDetail = () => {
                           </span>
                         </a>
                       </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="flex items-start"
+                          aria-current="step"
+                        >
+                          <div
+                            className="flex-shrink-0 h-5 w-5 relative flex items-center justify-center"
+                            aria-hidden="true"
+                          >
+                            <div className="h-2 w-2 bg-gray-300 rounded-full group-hover:bg-gray-400"></div>
+                          </div>
+                          <span className="ml-3 text-sm font-medium text-gray-500">
+                            USI
+                          </span>
+                        </a>
+                      </li>
                     </ol>
                   </div>
                 </li>
