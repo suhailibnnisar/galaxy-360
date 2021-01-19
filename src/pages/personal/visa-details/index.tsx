@@ -1,5 +1,5 @@
 import React from "react";
-import FormFooter from "../../components/students/FormFooter";
+import FormFooter from "../../../components/students/FormFooter";
 
 const index = () => {
   return (
@@ -280,7 +280,10 @@ const index = () => {
           </form>
         </div>
       </div>
-      <FormFooter />
+      <FormFooter
+        forwardLink="/personal/residential-address"
+        backLink="/personal/passport-details"
+      />
     </div>
   );
 };

@@ -12,7 +12,7 @@ module.exports = {
         md: "32px",
       },
       colors: {
-        bgPrim: "#ECECEC",
+        bgPrim: "#F8FAFC",
         "geekBlue-50": "#EDF5FF",
         "geekBlue-100": "#D0E2FF",
         "geekBlue-200": "#A6C8FF",

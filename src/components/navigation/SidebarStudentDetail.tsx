@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const BackIcon = () => (
   <svg
     width="24"
@@ -20,7 +22,7 @@ const SidebarStudentDetail = () => {
   return (
     <div className="hidden lg:flex lg:flex-shrink-0">
       <div className="flex flex-col  w-64">
-        <div className="flex flex-col h-0 flex-1 border-r border-gray-200 bg-gray-200">
+        <div className="flex flex-col h-0 flex-1 border-r border-gray-200 bg-gray-100">
           <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
             <div className="flex items-center flex-shrink-0 px-4 cursor-pointer">
               <BackIcon />
@@ -66,9 +68,11 @@ const SidebarStudentDetail = () => {
                               <span className="absolute h-4 w-4 rounded-full bg-indigo-200"></span>
                               <span className="relative block w-2 h-2 bg-geekBlue-600 rounded-full"></span>
                             </span>
-                            <span className="ml-3 text-sm text-geekBlue-600 group-hover:text-gray-900">
-                              Personal detail
-                            </span>
+                            <Link href="/personal/about-student">
+                              <span className="ml-3 text-sm text-geekBlue-600 group-hover:text-gray-900">
+                                Personal detail
+                              </span>
+                            </Link>
                           </span>
                         </a>
                       </li>

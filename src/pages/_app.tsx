@@ -1,5 +1,5 @@
 import "tailwindcss/tailwind.css";
-import SidebarStudentDetail from "./components/navigation/SidebarStudentDetail";
+import SidebarStudentDetail from "../components/navigation/SidebarStudentDetail";
 
 function MyApp({ Component, pageProps }) {
   return (
