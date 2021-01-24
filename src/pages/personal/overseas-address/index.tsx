@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import FormFooter from "../../../components/students/FormFooter";
 import { ResidentialForm } from "../residential-address";
 
-const index = () => {
-  const [toggleForm, setToggleForm] = useState(false);
+interface Props {}
+
+const index = (props: Props) => {
   return (
     <div className="flex flex-col w-full overflow-y-scroll bg-bgPrim">
       <div className="py-5 px-md">
@@ -66,71 +67,21 @@ const index = () => {
             </li>
           </ol>
         </nav>
-        <p className="text-3xl font-bold leading-9 mt-3">Postal Address</p>
+        <p className="text-3xl font-bold leading-9 mt-3">
+          Overseas/Permanent Address
+        </p>
         <p className="text-gray-500 text-sm font-medium">
-          Ultrices sagittis justo vitae, rhoncus habitant fermentum cursus
-          interdum sed.
+          Odio augue in nunc praesent in suspendisse tellus.
         </p>
       </div>
       <div className=" pb-0 px-md bg-bgPrim">
         <div className="w-1056px px-4 py-8 bg-white rounded-md shadow-md">
-          <form>
-            <p className="text-black font-black text-lg mb-2">
-              Is your Postal Address same as Residential Address?
-            </p>
-            <div className="flex flex-col">
-              <div className="relative border rounded-md  p-3 flex w-80 my-2 mr-4">
-                <div className="flex items-center h-5">
-                  <input
-                    id="postal-yes"
-                    name="postal-status"
-                    type="radio"
-                    className="focus:ring-indigo-500 h-4 w-4 text-indigo-900 cursor-pointer border-gray-300"
-                    onClick={() => setToggleForm(false)}
-                  />
-                </div>
-                <label
-                  htmlFor="postal-yes"
-                  className="ml-3 flex flex-col cursor-pointer"
-                >
-                  <span className="block text-sm font-normal  text-black">
-                    Yes
-                  </span>
-                </label>
-              </div>
-              <div className="relative border border-gray-200  rounded-md  my-2   p-3 flex w-80 mr-4">
-                <div className="flex items-center h-5">
-                  <input
-                    id="postal-no"
-                    name="postal-status"
-                    type="radio"
-                    className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
-                    onClick={() => {
-                      setToggleForm(true);
-                    }}
-                  />
-                </div>
-                <label
-                  htmlFor="postal-no"
-                  className="ml-3 flex flex-col cursor-pointer"
-                >
-                  <span className="block text-sm font-normal text-black">
-                    No
-                  </span>
-                </label>
-              </div>
-            </div>
-          </form>
-          {toggleForm && (
-            <div className="mt-6">
-              <ResidentialForm />
-            </div>
-          )}
+          <ResidentialForm />
         </div>
       </div>
       <FormFooter
-        forwardLink="/personal/overseas-address"
-        backLink="/personal/residential-address"
+        forwardLink="/personal/usi"
+        backLink="/personal/postal-address"
       />
     </div>
   );

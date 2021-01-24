@@ -1,5 +1,8 @@
 module.exports = {
-  purge: ['./src/components/**/*.{js,ts,jsx,tsx}', './src/pages/**/*.{js,ts,jsx,tsx}'],
+  purge: [
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -12,7 +15,7 @@ module.exports = {
         md: "32px",
       },
       colors: {
-        bgPrim: "#ECECEC",
+        bgPrim: "#F8FAFC",
         "geekBlue-50": "#EDF5FF",
         "geekBlue-100": "#D0E2FF",
         "geekBlue-200": "#A6C8FF",

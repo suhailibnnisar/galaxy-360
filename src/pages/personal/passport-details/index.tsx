@@ -1,5 +1,5 @@
 import React from "react";
-import FormFooter from "../../components/students/FormFooter";
+import FormFooter from "../../../components/students/FormFooter";
 
 const index = () => {
   return (
@@ -82,13 +82,16 @@ const index = () => {
                   Country of birth
                 </label>
                 <div className="mt-1">
-                  <input
-                    type="text"
-                    name="country"
+                  <select
                     id="country"
-                    className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-96 sm:text-sm border-gray-300 rounded-md"
+                    name="country"
+                    className="mt-1 block pl-3 pr-10 py-2 text-base text-gray-900 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md w-96"
                     placeholder="Select country"
-                  />
+                  >
+                    <option>USA</option>
+                    <option>Canada</option>
+                    <option>EU</option>
+                  </select>
                 </div>
               </div>
               <div className=" mr-4">
@@ -99,13 +102,16 @@ const index = () => {
                   Nationality
                 </label>
                 <div className="mt-1">
-                  <input
-                    type="text"
-                    name="nationality"
+                  <select
                     id="nationality"
-                    className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-60 sm:text-sm border-gray-300 rounded-md"
+                    name="nationality"
+                    className="mt-1 block pl-3 pr-10 py-2 text-base text-gray-900 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md w-96"
                     placeholder="Select Nationality"
-                  />
+                  >
+                    <option>American</option>
+                    <option>Canadian</option>
+                    <option>EU</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -232,7 +238,10 @@ const index = () => {
           </form>
         </div>
       </div>
-      <FormFooter />
+      <FormFooter
+        forwardLink="/personal/visa-details"
+        backLink="/personal/contact-details"
+      />
     </div>
   );
 };
