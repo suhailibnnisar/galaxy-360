@@ -1,5 +1,5 @@
-import React from 'react';
-import SidebarStudentDetail from '../components/navigation/SidebarStudentDetail';
+import React from "react";
+import SidebarStudentDetail from "../components/navigation/SidebarStudentDetail";
 
 const StudentsLayout: React.FC = ({ children }) => {
   return (
