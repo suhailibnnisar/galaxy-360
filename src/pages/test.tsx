@@ -5,7 +5,7 @@ import MainLayout from "../layouts/MainLayout";
 const Test = () => {
   return (
     <MainLayout>
-      <div className="h-full w-full flex flex-col items-center justify-center">
+      <div className=" w-full flex flex-col items-center justify-center py-10">
         <AddTaskForms />
       </div>
     </MainLayout>
