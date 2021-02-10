@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import Router from 'next/router';
-import CustomScroll from 'react-custom-scroll';
-import 'react-custom-scroll/dist/customScroll.css';
+import Link from "next/link";
+import Router from "next/router";
+import CustomScroll from "react-custom-scroll";
+import "react-custom-scroll/dist/customScroll.css";
 
 export const BackIcon = () => (
   <svg
@@ -28,12 +28,12 @@ const SidebarStudentDetail = () => {
         <div className="flex flex-col h-0 flex-1 border-r border-gray-200 bg-gray-100  ">
           <div
             className="flex-1 flex flex-col mt-0 ml-4"
-            style={{ height: '80vh' }}
+            style={{ height: "80vh" }}
           >
             <CustomScroll heightRelativeToParent="100%">
               <div
                 className="inline-flex items-center flex-shrink-0 cursor-pointer mt-6"
-                onClick={() => Router.push('/auth/signin')}
+                onClick={() => Router.push("/auth/signin")}
               >
                 <BackIcon />
                 <span className="text-gray-400 ml-4 mt">Back</span>
