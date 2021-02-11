@@ -3,6 +3,7 @@ import React, { useState } from "react";
 interface Props {
   changePage: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
+
 const closeIcon = (
   <div className="cursor-pointer">
     <svg
@@ -195,7 +196,7 @@ const TaskFormDetail: React.FC<Props> = ({ changePage }) => {
               name="description"
               rows={3}
               style={{ width: "29.5rem" }}
-              className="bg-gray-200 shadow-sm focus:ring-gray-300 focus:border-gray-300 mt-1 block w-full sm:text-sm border-transparent rounded-md placeholder-gray-400 text-xs leading-4 font-normal h-full"
+              className="bg-gray-100 shadow-sm focus:bg-gray-50 focus:ring-gray-300 focus:border-gray-300 mt-1 block w-full sm:text-sm border-transparent rounded-md placeholder-gray-400 text-xs leading-4 font-normal h-full"
               placeholder="Add more detailed description"
             ></textarea>
           </div>

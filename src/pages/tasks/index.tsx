@@ -4,6 +4,7 @@ import Rodal from "rodal";
 import "rodal/lib/rodal.css";
 
 import AddTaskForm from "../../components/main/tasks/AddTaskForms";
+import Modal from "../../components/includes/Modal";
 
 const data = [
   {
@@ -32,15 +33,16 @@ const Tasks: React.FC = () => {
   const [visible, setVisible] = useState(false);
   return (
     <MainLayout>
-      <Rodal width="808" visible={visible} onClose={() => setVisible(false)}>
+      <Modal visible={visible} setVisible={setVisible}>
         <AddTaskForm />
-      </Rodal>
-
+      </Modal>
       <div className="absolute bottom-6 right-6">
         <button
           type="button"
           className="inline-flex items-center p-3 border border-transparent rounded-full shadow-sm text-white bg-geekBlue-500  hover:bg-geekBlue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          onClick={() => setVisible(true)}
+          onClick={() => {
+            setVisible(true);
+          }}
         >
           <svg
             className="h-6 w-6"
