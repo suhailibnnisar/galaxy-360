@@ -2,9 +2,10 @@ import React, { useState } from "react";
 
 interface Props {
   changePage: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  handleModalClose: any;
 }
 
-const closeIcon = (
+export const closeIcon = (
   <div className="cursor-pointer">
     <svg
       width="14"
@@ -50,7 +51,10 @@ const Label = ({ icon, text, htmlFor }) => {
   );
 };
 
-const TaskFormInitialize: React.FC<Props> = ({ changePage }) => {
+const TaskFormInitialize: React.FC<Props> = ({
+  changePage,
+  handleModalClose,
+}) => {
   return (
     <div
       className="bg-white flex flex-col w-full items-center p-6 rounded-md m-3.5"
@@ -58,7 +62,9 @@ const TaskFormInitialize: React.FC<Props> = ({ changePage }) => {
     >
       <div className="flex flex-row w-96 items-center justify-between mb-6">
         <span className="text-lg leading-6 font-medium">Add Task</span>
-        {closeIcon}
+        <div className="inline-block" onClick={handleModalClose}>
+          {closeIcon}
+        </div>
       </div>
       <div className="mb-6 w-96">
         <input
@@ -104,7 +110,7 @@ const TaskFormInitialize: React.FC<Props> = ({ changePage }) => {
   );
 };
 
-const TaskFormDetail: React.FC<Props> = ({ changePage }) => {
+const TaskFormDetail: React.FC<Props> = ({ changePage, handleModalClose }) => {
   const [addCheckList, setAddCheckList] = useState<boolean>(false);
   const [addAttachment, setAddAttachment] = useState<boolean>(false);
 
@@ -160,7 +166,9 @@ const TaskFormDetail: React.FC<Props> = ({ changePage }) => {
             {downIcon}
           </div>
         </div>
-        {closeIcon}
+        <div className="inline-block" onClick={handleModalClose}>
+          {closeIcon}
+        </div>
       </div>
 
       <div className="flex flex-row">
@@ -580,20 +588,23 @@ const TaskFormDetail: React.FC<Props> = ({ changePage }) => {
   );
 };
 
-const index: React.FC = () => {
+const index: React.FC<{ handleModalClose: any }> = ({ handleModalClose }) => {
   const [page, setPage] = useState<"FIRST" | "LAST">("FIRST");
 
   return (
     <>
       {page === "FIRST" ? (
         <TaskFormInitialize
+          handleModalClose={handleModalClose}
           changePage={() => {
             setPage("LAST");
           }}
         />
       ) : (
         <TaskFormDetail
+          handleModalClose={handleModalClose}
           changePage={() => {
+            handleModalClose();
             setPage("FIRST");
           }}
         />
