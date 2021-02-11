@@ -4,13 +4,11 @@ import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  console.log(router);
 
   return (
-    <div>
-      {/* <SidebarStudentDetail /> */}
-      <Component {...pageProps} />
-    </div>
+    // <div className="h-screen flex overflow-hidden bg-white">
+    <Component {...pageProps} />
+    // </div>
   );
 }
 

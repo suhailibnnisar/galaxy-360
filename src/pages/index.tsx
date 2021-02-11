@@ -1,9 +1,8 @@
-import { useEffect } from 'react';
-import Router from 'next/router';
+import { useEffect } from "react";
+import Router from "next/router";
+import Link from "next/link";
+import MainLayout from "../layouts/MainLayout";
 
 export default function Home() {
-  useEffect(() => {
-    Router.push('/auth/signin');
-  }, []);
-  return <div>Dashboard</div>;
+  return <MainLayout>Dashboard</MainLayout>;
 }
