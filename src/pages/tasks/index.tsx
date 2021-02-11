@@ -6,6 +6,7 @@ import Select from "../../components/includes/Select";
 
 import AddTaskForm from "../../components/main/tasks/AddTaskForms";
 import Modal from "../../components/includes/Modal";
+import CustomizeTaskForm from "../../components/main/tasks/CustomizeTaskForm";
 
 const COLOR_DEPARTMENT_MAPPING = {
   Documentation: "bg-green-100",
@@ -49,10 +50,15 @@ const data = [
 const Tasks: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [tasks, setTasks] = useState(data);
+  const [customizeVisible, setCustomizeVisible] = useState(false);
+
   return (
     <MainLayout>
       <Modal visible={visible} setVisible={setVisible}>
-        <AddTaskForm />
+        <AddTaskForm handleModalClose={() => setVisible(false)} />
+      </Modal>
+      <Modal visible={customizeVisible} setVisible={setCustomizeVisible}>
+        <CustomizeTaskForm setCustomizeVisible={setCustomizeVisible} />
       </Modal>
       <div className="absolute bottom-6 right-6">
         <button
@@ -128,6 +134,7 @@ const Tasks: React.FC = () => {
             <button
               type="button"
               className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              onClick={() => setCustomizeVisible(true)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
