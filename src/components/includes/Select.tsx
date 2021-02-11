@@ -2,33 +2,47 @@ import React, { useState } from "react";
 import { Transition } from "@tailwindui/react";
 
 interface Props {
+  label?: string;
+  width?: string;
   customOptions?: any[];
+  defaultValue?: string;
+  className?: string;
 }
 
-const SelectComponent: React.FC<Props> = ({ customOptions }) => {
+const Select: React.FC<Props> = ({
+  defaultValue,
+  className,
+  width,
+  label,
+  customOptions,
+}) => {
   const [toggle, setToggle] = useState(false);
   const [selected, setSelected] = useState(null);
 
   const options = customOptions || ["Wade Cooper", "Sheldon Cooper"];
 
   return (
-    <div>
-      <label
-        id="listbox-label"
-        className="block text-sm font-medium text-gray-700"
-      >
-        Assigned to
-      </label>
+    <div className={className}>
+      {label && (
+        <label
+          id="listbox-label"
+          className="block text-sm font-medium text-gray-700"
+        >
+          {label}
+        </label>
+      )}
       <div className="mt-1 relative">
         <button
           type="button"
           aria-haspopup="listbox"
           aria-expanded="true"
           aria-labelledby="listbox-label"
-          className="relative w-64 bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          className={`relative ${
+            width || "w-40"
+          } bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
           onClick={() => setToggle((prevState) => !prevState)}
         >
-          <span className="block truncate">Tom Cook</span>
+          <span className="block truncate">{defaultValue}</span>
           <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
             <svg
               className="h-5 w-5 text-gray-400"
@@ -71,7 +85,7 @@ const SelectComponent: React.FC<Props> = ({ customOptions }) => {
                       setToggle(false);
                     }}
                   >
-                    <span className="font-normal block truncate">{option}</span>
+                    <span className="font-normal block">{option}</span>
                     {selected === i && (
                       <span className="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4">
                         <svg
@@ -100,4 +114,4 @@ const SelectComponent: React.FC<Props> = ({ customOptions }) => {
   );
 };
 
-export default SelectComponent;
+export default Select;

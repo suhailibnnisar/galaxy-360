@@ -2,12 +2,26 @@ import React, { useState } from "react";
 import MainLayout from "../../layouts/MainLayout";
 import Rodal from "rodal";
 import "rodal/lib/rodal.css";
+import Select from "../../components/includes/Select";
 
 import AddTaskForm from "../../components/main/tasks/AddTaskForms";
 import Modal from "../../components/includes/Modal";
 
+const COLOR_DEPARTMENT_MAPPING = {
+  Documentation: "bg-green-100",
+  Finance: "bg-geekBlue-100",
+  Admission: "bg-purple-100",
+};
+
+const COLOR_PRIORITY_MAPPING = {
+  High: "bg-red-100",
+  Medium: "bg-yellow-100",
+  Low: "bg-geekBlue-100",
+};
+
 const data = [
   {
+    id: 1,
     name: "Lorem Ipsum dolar soto",
     department: "Documentation",
     priority: "Medium",
@@ -16,21 +30,25 @@ const data = [
       name: "Sannani Awale",
     },
     dueDate: new Date(),
+    checked: false,
   },
   {
+    id: 2,
     name: "Lorem Ipsum dolar soto",
-    department: "Documentation",
-    priority: "Medium",
+    department: "Finance",
+    priority: "High",
     assignee: {
       image: <img src="" />,
       name: "Sannani Awale",
     },
     dueDate: new Date(),
+    checked: false,
   },
 ];
 
 const Tasks: React.FC = () => {
   const [visible, setVisible] = useState(false);
+  const [tasks, setTasks] = useState(data);
   return (
     <MainLayout>
       <Modal visible={visible} setVisible={setVisible}>
@@ -161,75 +179,36 @@ const Tasks: React.FC = () => {
             </div>
           </div>
           <div>
-            <div>
-              <label
-                id="listbox-label"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Assigned to
-              </label>
-              <div className="mt-1 relative">
-                <button
-                  type="button"
-                  aria-haspopup="listbox"
-                  aria-expanded="true"
-                  aria-labelledby="listbox-label"
-                  className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                >
-                  <span className="block truncate">Tom Cook</span>
-                  <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                    <svg
-                      className="h-5 w-5 text-gray-400"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                </button>
-
-                <div className="absolute mt-1 w-full rounded-md bg-white shadow-lg">
-                  <ul
-                    tabIndex={-1}
-                    role="listbox"
-                    aria-labelledby="listbox-label"
-                    aria-activedescendant="listbox-item-3"
-                    className="max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
-                  >
-                    <li
-                      id="listbox-option-0"
-                      role="option"
-                      className="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9"
-                    >
-                      <span className="font-normal block truncate">
-                        Wade Cooper
-                      </span>
-
-                      <span className="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4">
-                        <path
-                          className="h-5 w-5"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clip-rule="evenodd"
-                          />
-                        </path>
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            <div className="flex items-center">
+              <Select
+                width="w-40"
+                defaultValue="All Tasks"
+                customOptions={[
+                  "Incomplete Tasks",
+                  "Complete Tasks",
+                  "All Tasks",
+                ]}
+              />
+              <Select
+                defaultValue="All Time"
+                className="ml-4"
+                customOptions={["Due This Week", "Due Next Week", "Custom"]}
+              />
+              <Select
+                defaultValue="Status"
+                customOptions={["Low", "High", "Medium"]}
+                className="ml-4"
+              />
+              <Select
+                defaultValue="Mike Henry"
+                className="ml-4"
+                customOptions={[
+                  "Mike Henry",
+                  "John Doe",
+                  "Sannani Awale",
+                  "Hari Kumar Khati",
+                ]}
+              />
             </div>
           </div>
         </div>
@@ -242,6 +221,7 @@ const Tasks: React.FC = () => {
                   <table className="min-w-full divide-y divide-gray-200">
                     <thead className="">
                       <tr>
+                        <th />
                         <th
                           scope="col"
                           className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -250,73 +230,195 @@ const Tasks: React.FC = () => {
                         </th>
                         <th
                           scope="col"
-                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          className="flex justify-center items-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          Title
+                          DEPARTMENT
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            className="h-4 w-4 ml-1"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                            />
+                          </svg>
                         </th>
                         <th
                           scope="col"
                           className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          Status
+                          <div className="flex justify-center items-center">
+                            PRIORITY
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              className="h-4 w-4 ml-1"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                              />
+                            </svg>
+                          </div>
                         </th>
                         <th
                           scope="col"
                           className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          Role
+                          ASSIGNEE
                         </th>
-                        <th scope="col" className="relative px-6 py-3">
-                          <span className="sr-only">Edit</span>
+
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
+                          <div className="flex items-center">
+                            DUE DATE
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              className="h-4 w-4 ml-1"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                              />
+                            </svg>
+                          </div>
+                        </th>
+
+                        <th
+                          scope="col"
+                          className="flex items-center px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
+                          COLUMNS
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            className="h-4 w-4 ml-1"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                            />
+                          </svg>
                         </th>
                       </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                      <tr>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center">
-                            <div className="flex-shrink-0 h-10 w-10">
+                      {tasks.map((item) => {
+                        const month = item.dueDate.toLocaleString("default", {
+                          month: "short",
+                        });
+
+                        const day = item.dueDate.getMonth();
+
+                        const setChecked = () => {
+                          setTasks(
+                            tasks.map((task) => {
+                              if (task.id === item.id) {
+                                return {
+                                  ...task,
+                                  checked: !item.checked,
+                                };
+                              } else {
+                                return task;
+                              }
+                            })
+                          );
+                        };
+
+                        return (
+                          <tr key={item.id}>
+                            <td className="pl-6 whitespace-nowrap">
+                              <input
+                                id="remember_me"
+                                name="remember_me"
+                                type="checkbox"
+                                checked={item.checked}
+                                onChange={setChecked}
+                                className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
+                              />
+                            </td>
+                            <td className="px-6 whitespace-nowrap">
+                              <td
+                                className={`whitespace-nowrap text-sm text-gray-600 ${
+                                  item.checked ? "line-through" : ""
+                                }`}
+                              >
+                                {item.name}
+                              </td>
+                            </td>
+                            <td className="px-6 flex justify-center py-4 whitespace-nowrap text-center">
+                              <span
+                                className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                                  COLOR_DEPARTMENT_MAPPING[item.department]
+                                } ${COLOR_DEPARTMENT_MAPPING[item.department]
+                                  .replace("100", "800")
+                                  .replace("bg", "text")}`}
+                              >
+                                {item.department}
+                              </span>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-center">
+                              <span
+                                className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                                  COLOR_PRIORITY_MAPPING[item.priority]
+                                }  ${COLOR_PRIORITY_MAPPING[item.priority]
+                                  .replace("100", "800")
+                                  .replace("bg", "text")}`}
+                              >
+                                {item.priority}
+                              </span>
+                            </td>
+                            <td className="flex items-center py-4 whitespace-nowrap text-sm text-gray-500">
                               <img
-                                className="h-10 w-10 rounded-full"
-                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60"
+                                className="inline-block h-6 w-6 rounded-full mr-2"
+                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=mR7Mc7kSlc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                 alt=""
                               />
-                            </div>
-                            <div className="ml-4">
-                              <div className="text-sm font-medium text-gray-900">
-                                Jane Cooper
-                              </div>
-                              <div className="text-sm text-gray-500">
-                                jane.cooper@example.com
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm text-gray-900">
-                            Regional Paradigm Technician
-                          </div>
-                          <div className="text-sm text-gray-500">
-                            Optimization
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            Active
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          Admin
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a
-                            href="#"
-                            className="text-indigo-600 hover:text-indigo-900"
-                          >
-                            Edit
-                          </a>
-                        </td>
-                      </tr>
+                              {item.assignee.name}
+                            </td>
+                            <td className="px-6 whitespace-nowrap">
+                              <td className="flex items-center whitespace-nowrap text-sm text-gray-600">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  className="h-5 w-5 text-gray-400 mr-2"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                  />
+                                </svg>
+                                {month} {day}
+                              </td>
+                            </td>
+                            <td />
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>
