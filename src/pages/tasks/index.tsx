@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import MainLayout from "../../layouts/MainLayout";
 import Select from "../../components/includes/Select";
 
-import AddTaskForm from "../../components/main/tasks/AddTaskForms";
+import AddTaskForm, {
+  FilledTaskFormDetail,
+} from "../../components/main/tasks/AddTaskForms";
 import { RodalModal as Modal } from "../../components/includes/Modal";
 import CustomizeTaskForm from "../../components/main/tasks/CustomizeTaskForm";
 const tabs = [
@@ -59,11 +61,15 @@ const Tasks: React.FC = () => {
     "LIST"
   );
   const [customizeVisible, setCustomizeVisible] = useState(false);
+  const [rowFormVisible, setRowFormVisible] = useState(false);
 
   return (
     <MainLayout>
       <Modal visible={visible} setVisible={setVisible}>
         <AddTaskForm handleModalClose={() => setVisible(false)} />
+      </Modal>
+      <Modal visible={rowFormVisible} setVisible={setRowFormVisible}>
+        <FilledTaskFormDetail setVisible={setRowFormVisible} />
       </Modal>
       <Modal visible={customizeVisible} setVisible={setCustomizeVisible}>
         <CustomizeTaskForm setCustomizeVisible={setCustomizeVisible} />
@@ -375,18 +381,32 @@ const Tasks: React.FC = () => {
                               })
                             );
                           };
-
-                          return (
-                            <tr key={item.id}>
-                              <td className="pl-6 whitespace-nowrap">
-                                <input
-                                  id="remember_me"
-                                  name="remember_me"
-                                  type="checkbox"
-                                  checked={item.checked}
-                                  onChange={setChecked}
-                                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
-                                />
+                        return (
+                          <tr
+                            key={item.id}
+                            onClick={() => setRowFormVisible(true)}
+                            className="bg-white hover:bg-gray-50 cursor-pointer transition-all duration-300"
+                          >
+                            <td className="pl-6 whitespace-nowrap">
+                              <input
+                                id="remember_me"
+                                name="remember_me"
+                                type="checkbox"
+                                checked={item.checked}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                }}
+                                onChange={setChecked}
+                                className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
+                              />
+                            </td>
+                            <td className="px-6 whitespace-nowrap">
+                              <td
+                                className={`whitespace-nowrap text-sm text-gray-600 ${
+                                  item.checked ? "line-through" : ""
+                                }`}
+                              >
+                                {item.name}
                               </td>
                               <td className="px-6 whitespace-nowrap">
                                 <td
