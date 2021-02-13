@@ -60,19 +60,26 @@ export const RodalModal: React.FC<Props> = ({
   setVisible,
 }) => {
   return (
-    <Rodal
-      visible={visible}
-      animation="slideDown"
-      onClose={() => setVisible(false)}
-      showCloseButton={false}
-      customStyles={{
-        height: "fit-content",
-        width: "fit-content",
-        padding: "0",
-      }}
-    >
-      {children}
-    </Rodal>
+    <>
+      <Rodal
+        className="__xeromi-modal"
+        visible={visible}
+        animation="slideDown"
+        onClose={() => setVisible(false)}
+        showCloseButton={false}
+        height="100"
+        width="100"
+        measure="%"
+        customStyles={{
+          height: "fit-content",
+          padding: "0",
+          width: "fit-content",
+          overflowY: "auto",
+        }}
+      >
+        {children}
+      </Rodal>
+    </>
   );
 };
 

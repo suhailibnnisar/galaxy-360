@@ -1,6 +1,7 @@
 import "tailwindcss/tailwind.css";
 import SidebarStudentDetail from "../components/navigation/SidebarStudentDetail";
 import { useRouter } from "next/router";
+import "../../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
