@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import MainLayout from "../../layouts/MainLayout";
-import Rodal from "rodal";
-import "rodal/lib/rodal.css";
 import Select from "../../components/includes/Select";
 
 import AddTaskForm from "../../components/main/tasks/AddTaskForms";
-import Modal from "../../components/includes/Modal";
+import { RodalModal as Modal } from "../../components/includes/Modal";
 import CustomizeTaskForm from "../../components/main/tasks/CustomizeTaskForm";
 
 const COLOR_DEPARTMENT_MAPPING = {
