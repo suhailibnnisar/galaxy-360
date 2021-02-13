@@ -110,7 +110,9 @@ const TaskFormInitialize: React.FC<Props> = ({
   );
 };
 
-export const FilledTaskFormDetail: React.FC = ({ setVisible }: any) => {
+export const FilledTaskFormDetail: React.FC<{ setVisible: any }> = ({
+  setVisible,
+}) => {
   return (
     <div
       className="bg-white pt-6 w-full rounded-lg overflow-hidden"
