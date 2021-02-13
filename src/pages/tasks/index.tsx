@@ -7,6 +7,13 @@ import AddTaskForm, {
 } from "../../components/main/tasks/AddTaskForms";
 import { RodalModal as Modal } from "../../components/includes/Modal";
 import CustomizeTaskForm from "../../components/main/tasks/CustomizeTaskForm";
+const tabs = [
+  { linkTo: "dashboard", label: "Dashboard" },
+  { linkTo: "downloads", label: "Downloads" },
+  { linkTo: "uploads", label: "Uploads" },
+  { linkTo: "totalStats", label: "Stats" },
+  { linkTo: "account", label: "Account" },
+];
 
 const COLOR_DEPARTMENT_MAPPING = {
   Documentation: "bg-green-100",
@@ -50,6 +57,9 @@ const data = [
 const Tasks: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [tasks, setTasks] = useState(data);
+  const [selectedTab, setSelectedTab] = useState<"LIST" | "BOARD" | "REPORTS">(
+    "LIST"
+  );
   const [customizeVisible, setCustomizeVisible] = useState(false);
   const [rowFormVisible, setRowFormVisible] = useState(false);
 
@@ -112,20 +122,35 @@ const Tasks: React.FC = () => {
                 <nav className="-mb-px flex space-x-8" aria-label="Tabs">
                   <a
                     href="#"
-                    className="border-geekBlue-500 text-geekBlue-500 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+                    className={`${
+                      selectedTab === "LIST"
+                        ? "border-geekBlue-500 text-geekBlue-500"
+                        : "border-transparent text-gray-500"
+                    } hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
                     aria-current="page"
+                    onClick={() => setSelectedTab("LIST")}
                   >
                     List
                   </a>
                   <a
                     href="#"
-                    className="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+                    onClick={() => setSelectedTab("BOARD")}
+                    className={`${
+                      selectedTab === "BOARD"
+                        ? "border-geekBlue-500 text-geekBlue-500"
+                        : "border-transparent text-gray-500"
+                    } hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
                   >
                     Board
                   </a>
                   <a
                     href="#"
-                    className="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+                    onClick={() => setSelectedTab("REPORTS")}
+                    className={`${
+                      selectedTab === "REPORTS"
+                        ? "border-geekBlue-500 text-geekBlue-500"
+                        : "border-transparent text-gray-500"
+                    } hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
                   >
                     Reports
                   </a>
@@ -225,46 +250,26 @@ const Tasks: React.FC = () => {
         </div>
 
         <div className="mt-6">
-          <div className="flex flex-col">
-            <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div className="overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                  <table className="min-w-full divide-y divide-gray-200">
-                    <thead className="">
-                      <tr>
-                        <th />
-                        <th
-                          scope="col"
-                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
-                          TASK NAME
-                        </th>
-                        <th
-                          scope="col"
-                          className="flex justify-center items-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
-                          DEPARTMENT
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            className="h-4 w-4 ml-1"
+          {selectedTab === "LIST" ? (
+            <div className="flex flex-col">
+              <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                  <div className="overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <table className="min-w-full divide-y divide-gray-200">
+                      <thead className="">
+                        <tr>
+                          <th />
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                           >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M8 9l4-4 4 4m0 6l-4 4-4-4"
-                            />
-                          </svg>
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
-                          <div className="flex justify-center items-center">
-                            PRIORITY
+                            TASK NAME
+                          </th>
+                          <th
+                            scope="col"
+                            className="flex justify-center items-center px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
+                            DEPARTMENT
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
@@ -279,21 +284,64 @@ const Tasks: React.FC = () => {
                                 d="M8 9l4-4 4 4m0 6l-4 4-4-4"
                               />
                             </svg>
-                          </div>
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
-                          ASSIGNEE
-                        </th>
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
+                            <div className="flex justify-center items-center">
+                              PRIORITY
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                className="h-4 w-4 ml-1"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                                />
+                              </svg>
+                            </div>
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
+                            ASSIGNEE
+                          </th>
 
-                        <th
-                          scope="col"
-                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
-                          <div className="flex items-center">
-                            DUE DATE
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
+                            <div className="flex items-center">
+                              DUE DATE
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                className="h-4 w-4 ml-1"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                                />
+                              </svg>
+                            </div>
+                          </th>
+
+                          <th
+                            scope="col"
+                            className="flex items-center px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
+                            COLUMNS
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
@@ -305,57 +353,34 @@ const Tasks: React.FC = () => {
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                                 strokeWidth={2}
-                                d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                               />
                             </svg>
-                          </div>
-                        </th>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="bg-white divide-y divide-gray-200">
+                        {tasks.map((item) => {
+                          const month = item.dueDate.toLocaleString("default", {
+                            month: "short",
+                          });
 
-                        <th
-                          scope="col"
-                          className="flex items-center px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
-                          COLUMNS
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            className="h-4 w-4 ml-1"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                            />
-                          </svg>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="bg-white divide-y divide-gray-200">
-                      {tasks.map((item) => {
-                        const month = item.dueDate.toLocaleString("default", {
-                          month: "short",
-                        });
+                          const day = item.dueDate.getMonth();
 
-                        const day = item.dueDate.getMonth();
-
-                        const setChecked = () => {
-                          setTasks(
-                            tasks.map((task) => {
-                              if (task.id === item.id) {
-                                return {
-                                  ...task,
-                                  checked: !item.checked,
-                                };
-                              } else {
-                                return task;
-                              }
-                            })
-                          );
-                        };
-
+                          const setChecked = () => {
+                            setTasks(
+                              tasks.map((task) => {
+                                if (task.id === item.id) {
+                                  return {
+                                    ...task,
+                                    checked: !item.checked,
+                                  };
+                                } else {
+                                  return task;
+                                }
+                              })
+                            );
+                          };
                         return (
                           <tr
                             key={item.id}
@@ -383,66 +408,93 @@ const Tasks: React.FC = () => {
                               >
                                 {item.name}
                               </td>
-                            </td>
-                            <td className="px-6 flex justify-center py-4 whitespace-nowrap text-center">
-                              <span
-                                className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                                  COLOR_DEPARTMENT_MAPPING[item.department]
-                                } ${COLOR_DEPARTMENT_MAPPING[item.department]
-                                  .replace("100", "800")
-                                  .replace("bg", "text")}`}
-                              >
-                                {item.department}
-                              </span>
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-center">
-                              <span
-                                className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                                  COLOR_PRIORITY_MAPPING[item.priority]
-                                }  ${COLOR_PRIORITY_MAPPING[item.priority]
-                                  .replace("100", "800")
-                                  .replace("bg", "text")}`}
-                              >
-                                {item.priority}
-                              </span>
-                            </td>
-                            <td className="flex items-center py-4 whitespace-nowrap text-sm text-gray-500">
-                              <img
-                                className="inline-block h-6 w-6 rounded-full mr-2"
-                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=mR7Mc7kSlc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                alt=""
-                              />
-                              {item.assignee.name}
-                            </td>
-                            <td className="px-6 whitespace-nowrap">
-                              <td className="flex items-center whitespace-nowrap text-sm text-gray-600">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                  className="h-5 w-5 text-gray-400 mr-2"
+                              <td className="px-6 whitespace-nowrap">
+                                <td
+                                  className={`whitespace-nowrap text-sm text-gray-600 ${
+                                    item.checked ? "line-through" : ""
+                                  }`}
                                 >
-                                  <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                                  />
-                                </svg>
-                                {month} {day}
+                                  {item.name}
+                                </td>
                               </td>
-                            </td>
-                            <td />
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
+                              <td className="px-6 flex justify-center py-4 whitespace-nowrap text-center">
+                                <span
+                                  className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                                    COLOR_DEPARTMENT_MAPPING[item.department]
+                                  } ${COLOR_DEPARTMENT_MAPPING[item.department]
+                                    .replace("100", "800")
+                                    .replace("bg", "text")}`}
+                                >
+                                  {item.department}
+                                </span>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap text-center">
+                                <span
+                                  className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                                    COLOR_PRIORITY_MAPPING[item.priority]
+                                  }  ${COLOR_PRIORITY_MAPPING[item.priority]
+                                    .replace("100", "800")
+                                    .replace("bg", "text")}`}
+                                >
+                                  {item.priority}
+                                </span>
+                              </td>
+                              <td className="flex items-center py-4 whitespace-nowrap text-sm text-gray-500">
+                                <img
+                                  className="inline-block h-6 w-6 rounded-full mr-2"
+                                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=mR7Mc7kSlc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                  alt=""
+                                />
+                                {item.assignee.name}
+                              </td>
+                              <td className="px-6 whitespace-nowrap">
+                                <td className="flex items-center whitespace-nowrap text-sm text-gray-600">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    className="h-5 w-5 text-gray-400 mr-2"
+                                  >
+                                    <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                    />
+                                  </svg>
+                                  {month} {day}
+                                </td>
+                              </td>
+                              <td />
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : selectedTab === "BOARD" ? (
+            <div className="flex justify-between">
+              <div className="bg-gray-100 border w-80 p-4 rounded-md border-gray-300 ">
+                <div className="flex justify-between">
+                  <span className="font-semibold">Todo</span>
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-gray-200 text-gray-800">
+                    4 Tasks
+                  </span>
+                </div>
+
+                <div className="bg-white p-2 rounded-sm"></div>
+              </div>
+              <div>View1</div>
+              <div>View1</div>
+              <div>View1</div>
+            </div>
+          ) : (
+            <div>Reports</div>
+          )}
         </div>
       </div>
     </MainLayout>
