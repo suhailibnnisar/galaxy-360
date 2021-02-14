@@ -220,10 +220,11 @@ const MainLayout: React.FC = ({ children }) => {
             <div className="flex flex-col h-0 flex-1">
               <div className="flex items-center h-16 flex-shrink-0 px-4 bg-gray-800">
                 <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+                  className="h-6 w-auto mr-2"
+                  src="/Mark.png"
                   alt="Workflow"
                 />
+                <img className="h-4 w-auto" src="/Xeromi.png" alt="Workflow" />
               </div>
               <div className="flex-1 flex flex-col overflow-y-auto">
                 <nav className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
