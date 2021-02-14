@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import MainLayout from "../../layouts/MainLayout";
 import Select from "../../components/includes/Select";
+import CustomScroll from "react-custom-scroll";
 
 import AddTaskForm from "../../components/main/tasks/AddTaskForms";
 import { RodalModal as Modal } from "../../components/includes/Modal";
 import CustomizeTaskForm from "../../components/main/tasks/CustomizeTaskForm";
-const tabs = [
-  { linkTo: "dashboard", label: "Dashboard" },
-  { linkTo: "downloads", label: "Downloads" },
-  { linkTo: "uploads", label: "Uploads" },
-  { linkTo: "totalStats", label: "Stats" },
-  { linkTo: "account", label: "Account" },
-];
+import Card from "../../components/tasks/card";
+import Kanban from "../../components/tasks/kanban";
 
 const COLOR_DEPARTMENT_MAPPING = {
   Documentation: "bg-green-100",
@@ -32,9 +28,11 @@ const data = [
     department: "Documentation",
     priority: "Medium",
     assignee: {
-      image: <img src="" />,
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=mR7Mc7kSlc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
       name: "Sannani Awale",
     },
+    description: "Lorem ipsum consectetur adipiscing elit",
     dueDate: new Date(),
     checked: false,
   },
@@ -44,9 +42,11 @@ const data = [
     department: "Finance",
     priority: "High",
     assignee: {
-      image: <img src="" />,
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=mR7Mc7kSlc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
       name: "Sannani Awale",
     },
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
     dueDate: new Date(),
     checked: false,
   },
@@ -71,13 +71,11 @@ const Tasks: React.FC = () => {
       <div className="absolute bottom-6 right-6">
         <button
           type="button"
-          className="inline-flex items-center p-3 border border-transparent rounded-full shadow-sm text-white bg-geekBlue-500  hover:bg-geekBlue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          onClick={() => {
-            setVisible(true);
-          }}
+          className="inline-flex items-center p-3 border border-transparent rounded-full shadow-xl text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          onClick={() => setVisible(true)}
         >
           <svg
-            className="h-6 w-6"
+            className="h-10 w-10"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -422,7 +420,7 @@ const Tasks: React.FC = () => {
                               <td className="flex items-center py-4 whitespace-nowrap text-sm text-gray-500">
                                 <img
                                   className="inline-block h-6 w-6 rounded-full mr-2"
-                                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=mR7Mc7kSlc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                  src={item.assignee.image}
                                   alt=""
                                 />
                                 {item.assignee.name}
@@ -457,20 +455,13 @@ const Tasks: React.FC = () => {
               </div>
             </div>
           ) : selectedTab === "BOARD" ? (
-            <div className="flex justify-between">
-              <div className="bg-gray-100 border w-80 p-4 rounded-md border-gray-300 ">
-                <div className="flex justify-between">
-                  <span className="font-semibold">Todo</span>
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-gray-200 text-gray-800">
-                    4 Tasks
-                  </span>
-                </div>
-
-                <div className="bg-white p-2 rounded-sm"></div>
-              </div>
-              <div>View1</div>
-              <div>View1</div>
-              <div>View1</div>
+            <div
+              className="flex pb-4 h-full overflow-x-scroll"
+              style={{ height: "68vh" }}
+            >
+              {["", "", "", "", ""].map((item) => (
+                <Kanban />
+              ))}
             </div>
           ) : (
             <div>Reports</div>
