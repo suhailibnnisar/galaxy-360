@@ -57,8 +57,8 @@ const TaskFormInitialize: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className="bg-white flex flex-col w-full items-center p-6 rounded-md m-3.5"
-      style={{ width: "30rem" }}
+      className="bg-white flex flex-col w-full p-6 rounded-md m-3.5"
+      style={{ width: "fit-content" }}
     >
       <div className="flex flex-row w-96 items-center justify-between mb-6">
         <span className="text-lg leading-6 font-medium">Add Task</span>
@@ -280,7 +280,7 @@ export const FilledTaskFormDetail: React.FC<{ setVisible: any }> = ({
             />
             <div className="flex flex-col mt-1">
               <div
-                className="relative rounded-lg border bg-white px-2 py-2 shadow-sm flex items-center space-x-3 hover:border-blue-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 mt-1"
+                className="relative rounded-lg border bg-white px-2 py-2 shadow-sm flex items-center space-x-3 hover:border-blue-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-geekBlue-500 mt-1"
                 style={{ backgroundColor: "#f1f5f9" }}
               >
                 <div className="flex-shrink-0">
@@ -326,7 +326,7 @@ export const FilledTaskFormDetail: React.FC<{ setVisible: any }> = ({
                 <div>{downIcon}</div>
               </div>
               <div
-                className="relative rounded-lg border bg-white px-2 py-2 shadow-sm flex items-center space-x-3 hover:border-blue-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 mt-1"
+                className="relative rounded-lg border bg-white px-2 py-2 shadow-sm flex items-center space-x-3 hover:border-blue-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-geekBlue-500 mt-1"
                 style={{ backgroundColor: "#f1f5f9" }}
               >
                 <div className="flex-shrink-0">
@@ -781,7 +781,7 @@ const TaskFormDetail: React.FC<Props> = ({ changePage, handleModalClose }) => {
               </div>
             ) : (
               <div
-                className="relative rounded-lg border bg-white px-2 py-2 shadow-sm flex items-center space-x-3 hover:border-blue-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 mt-1"
+                className="relative rounded-lg border bg-white px-2 py-2 shadow-sm flex items-center space-x-3 hover:border-blue-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-geekBlue-500 mt-1"
                 style={{ backgroundColor: "#f1f5f9" }}
                 onClick={() => setAddAttachment(false)}
               >

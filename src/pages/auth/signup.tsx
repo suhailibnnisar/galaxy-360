@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
 interface Props {}
 
@@ -65,7 +65,7 @@ const SignUp = (props: Props) => {
                   name="agency"
                   type="agency"
                   autoComplete="agency"
-                  className="appearance-none block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="appearance-none block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-geekBlue-500 focus:border-geekBlue-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -83,8 +83,8 @@ const SignUp = (props: Props) => {
                     name="first-name"
                     type="text"
                     autoComplete="first-name"
-                    className="appearance-none block px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    style={{ width: '11.5rem' }}
+                    className="appearance-none block px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-geekBlue-500 focus:border-geekBlue-500 sm:text-sm"
+                    style={{ width: "11.5rem" }}
                   />
                 </div>
               </div>
@@ -101,8 +101,8 @@ const SignUp = (props: Props) => {
                     name="last-name"
                     type="text"
                     autoComplete="last-name"
-                    className="appearance-none block px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    style={{ width: '11.5rem' }}
+                    className="appearance-none block px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-geekBlue-500 focus:border-geekBlue-500 sm:text-sm"
+                    style={{ width: "11.5rem" }}
                   />
                 </div>
               </div>
@@ -120,7 +120,7 @@ const SignUp = (props: Props) => {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  className="appearance-none block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="appearance-none block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-geekBlue-500 focus:border-geekBlue-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -137,7 +137,7 @@ const SignUp = (props: Props) => {
                   name="password"
                   type="password"
                   autoComplete="password"
-                  className="appearance-none block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="appearance-none block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-geekBlue-500 focus:border-geekBlue-500 sm:text-sm"
                 />
               </div>
               <div className="flex flex-row mt-1">
@@ -163,7 +163,7 @@ const SignUp = (props: Props) => {
                 </p>
                 <p className="mt-2 flex items-center text-sm text-gray-900">
                   <TickIcon />
-                  {'At least one of the following -().&*$%+_'}
+                  {"At least one of the following -().&*$%+_"}
                 </p>
               </div>
             </div>
@@ -172,7 +172,7 @@ const SignUp = (props: Props) => {
               <Link href="/auth/email-confirmation">
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-geekBlue-600 hover:bg-geekBlue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-geekBlue-500"
                 >
                   Sign up
                 </button>

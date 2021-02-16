@@ -3,7 +3,9 @@ import MainLayout from "../../layouts/MainLayout";
 import Select from "../../components/includes/Select";
 import CustomScroll from "react-custom-scroll";
 
-import AddTaskForm from "../../components/main/tasks/AddTaskForms";
+import AddTaskForm, {
+  FilledTaskFormDetail,
+} from "../../components/main/tasks/AddTaskForms";
 import { RodalModal as Modal } from "../../components/includes/Modal";
 import CustomizeTaskForm from "../../components/main/tasks/CustomizeTaskForm";
 import Card from "../../components/tasks/card";
@@ -59,11 +61,15 @@ const Tasks: React.FC = () => {
     "LIST"
   );
   const [customizeVisible, setCustomizeVisible] = useState(false);
+  const [rowFormVisible, setRowFormVisible] = useState(false);
 
   return (
     <MainLayout>
       <Modal visible={visible} setVisible={setVisible}>
         <AddTaskForm handleModalClose={() => setVisible(false)} />
+      </Modal>
+      <Modal visible={rowFormVisible} setVisible={setRowFormVisible}>
+        <FilledTaskFormDetail setVisible={setRowFormVisible} />
       </Modal>
       <Modal visible={customizeVisible} setVisible={setCustomizeVisible}>
         <CustomizeTaskForm setCustomizeVisible={setCustomizeVisible} />
@@ -71,8 +77,11 @@ const Tasks: React.FC = () => {
       <div className="absolute bottom-6 right-6">
         <button
           type="button"
-          className="inline-flex items-center p-3 border border-transparent rounded-full shadow-xl text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="inline-flex items-center p-3 border border-transparent rounded-full shadow-xl transition-all duration-75 text-white bg-geekBlue-500 hover:bg-geekBlue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-geekBlue-500"
           onClick={() => setVisible(true)}
+          style={{
+            boxShadow: "10px 10px 41px -14px rgba(15,98,254,1)",
+          }}
         >
           <svg
             className="h-10 w-10"
@@ -102,7 +111,7 @@ const Tasks: React.FC = () => {
               <select
                 id="tabs"
                 name="tabs"
-                className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-geekBlue-500 focus:border-geekBlue-500 sm:text-sm rounded-md"
               >
                 <option selected>List</option>
                 <option>Board</option>
@@ -154,7 +163,7 @@ const Tasks: React.FC = () => {
           <div>
             <button
               type="button"
-              className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-geekBlue-500"
               onClick={() => setCustomizeVisible(true)}
             >
               <svg
@@ -224,7 +233,7 @@ const Tasks: React.FC = () => {
               />
               <Select
                 defaultValue="Status"
-                customOptions={["Low", "High", "Medium"]}
+                customOptions={["Low", "Medium", "High"]}
                 className="ml-4"
               />
               <Select
@@ -351,7 +360,7 @@ const Tasks: React.FC = () => {
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="bg-white divide-y divide-gray-200">
+                      <tbody className="bg-white divide-y divide-gray-200 rounded-md overflow-y-hidden">
                         {tasks.map((item) => {
                           const month = item.dueDate.toLocaleString("default", {
                             month: "short",
@@ -375,15 +384,22 @@ const Tasks: React.FC = () => {
                           };
 
                           return (
-                            <tr key={item.id}>
+                            <tr
+                              key={item.id}
+                              onClick={() => setRowFormVisible(true)}
+                              className="rounded-md"
+                            >
                               <td className="pl-6 whitespace-nowrap">
                                 <input
                                   id="remember_me"
                                   name="remember_me"
                                   type="checkbox"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                  }}
                                   checked={item.checked}
                                   onChange={setChecked}
-                                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
+                                  className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-600 cursor-pointer border-gray-300"
                                 />
                               </td>
                               <td className="px-6 whitespace-nowrap">
@@ -460,7 +476,7 @@ const Tasks: React.FC = () => {
               style={{ height: "68vh" }}
             >
               {["Todo", "In Progress", "Done", "Review"].map((item) => (
-                <Kanban title={item} />
+                <Kanban setRowFormVisible={setRowFormVisible} title={item} />
               ))}
             </div>
           ) : (

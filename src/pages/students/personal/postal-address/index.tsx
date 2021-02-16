@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import FormFooter from '../../../../components/students/FormFooter';
-import StudentHeader from '../../../../components/students/StudentHeader';
-import StudentsLayout from '../../../../layouts/StudentsLayout';
-import { ResidentialForm } from '../residential-address';
+import React, { useState } from "react";
+import FormFooter from "../../../../components/students/FormFooter";
+import StudentHeader from "../../../../components/students/StudentHeader";
+import StudentsLayout from "../../../../layouts/StudentsLayout";
+import { ResidentialForm } from "../residential-address";
 
 const index = () => {
   const [toggleForm, setToggleForm] = useState(false);
@@ -27,7 +27,7 @@ const index = () => {
                       id="postal-yes"
                       name="postal-status"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-900 cursor-pointer border-gray-300"
+                      className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-900 cursor-pointer border-gray-300"
                       onClick={() => setToggleForm(false)}
                     />
                   </div>
@@ -46,7 +46,7 @@ const index = () => {
                       id="postal-no"
                       name="postal-status"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
+                      className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-600 cursor-pointer border-gray-300"
                       onClick={() => {
                         setToggleForm(true);
                       }}

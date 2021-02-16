@@ -1,7 +1,7 @@
-import React from 'react';
-import FormFooter from '../../../../components/students/FormFooter';
-import StudentHeader from '../../../../components/students/StudentHeader';
-import StudentsLayout from '../../../../layouts/StudentsLayout';
+import React from "react";
+import FormFooter from "../../../../components/students/FormFooter";
+import StudentHeader from "../../../../components/students/StudentHeader";
+import StudentsLayout from "../../../../layouts/StudentsLayout";
 
 export const ResidentialForm = () => {
   return (
@@ -35,7 +35,7 @@ export const ResidentialForm = () => {
               type="text"
               name="flat-unit"
               id="flat-unit"
-              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-60 sm:text-sm border-gray-300 rounded-md"
+              className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-60 sm:text-sm border-gray-300 rounded-md"
             />
           </div>
         </div>
@@ -67,7 +67,7 @@ export const ResidentialForm = () => {
               type="text"
               name="building-property"
               id="building-property"
-              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-60 sm:text-sm border-gray-300 rounded-md"
+              className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-60 sm:text-sm border-gray-300 rounded-md"
             />
           </div>
         </div>
@@ -101,7 +101,7 @@ export const ResidentialForm = () => {
               type="text"
               name="street-number"
               id="street-number"
-              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-60 sm:text-sm border-gray-300 rounded-md"
+              className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-60 sm:text-sm border-gray-300 rounded-md"
             />
           </div>
         </div>
@@ -133,7 +133,7 @@ export const ResidentialForm = () => {
               type="text"
               name="street-name"
               id="street-name"
-              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-60 sm:text-sm border-gray-300 rounded-md"
+              className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-60 sm:text-sm border-gray-300 rounded-md"
             />
           </div>
         </div>
@@ -153,8 +153,8 @@ export const ResidentialForm = () => {
               type="text"
               name="city-town-suburb"
               id="city-town-suburb"
-              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block  sm:text-sm border-gray-300 rounded-md"
-              style={{ width: '31rem' }}
+              className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block  sm:text-sm border-gray-300 rounded-md"
+              style={{ width: "31rem" }}
             />
           </div>
         </div>
@@ -174,7 +174,7 @@ export const ResidentialForm = () => {
               type="text"
               name="state-province"
               id="state-province"
-              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-96 sm:text-sm border-gray-300 rounded-md"
+              className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-96 sm:text-sm border-gray-300 rounded-md"
             />
           </div>
         </div>
@@ -189,7 +189,7 @@ export const ResidentialForm = () => {
               type="text"
               name="postcode"
               id="postcode"
-              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-24 sm:text-sm border-gray-300 rounded-md"
+              className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-24 sm:text-sm border-gray-300 rounded-md"
             />
           </div>
         </div>
@@ -206,7 +206,7 @@ export const ResidentialForm = () => {
               type="text"
               name="country"
               id="country"
-              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block  sm:text-sm border-gray-300 rounded-md"
+              className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block  sm:text-sm border-gray-300 rounded-md"
               style={{ width: "31rem" }}
               placeholder="Select country"
             />
@@ -222,8 +222,8 @@ export const ResidentialForm = () => {
         <select
           id="country"
           name="country"
-          className="mt-1 block pl-3 pr-10 py-2 text-base text-gray-900 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-          style={{ width: '31rem' }}
+          className="mt-1 block pl-3 pr-10 py-2 text-base text-gray-900 border-gray-300 focus:outline-none focus:ring-geekBlue-500 focus:border-geekBlue-500 sm:text-sm rounded-md"
+          style={{ width: "31rem" }}
           placeholder="Select country"
         >
           <option>USA</option>

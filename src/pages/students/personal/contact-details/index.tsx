@@ -1,7 +1,7 @@
-import React from 'react';
-import FormFooter from '../../../../components/students/FormFooter';
-import StudentHeader from '../../../../components/students/StudentHeader';
-import StudentsLayout from '../../../../layouts/StudentsLayout';
+import React from "react";
+import FormFooter from "../../../../components/students/FormFooter";
+import StudentHeader from "../../../../components/students/StudentHeader";
+import StudentsLayout from "../../../../layouts/StudentsLayout";
 
 const index = () => {
   return (
@@ -27,7 +27,7 @@ const index = () => {
                       type="text"
                       name="first-name"
                       id="first-name"
-                      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-80 sm:text-sm border-gray-300 rounded-md"
+                      className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-80 sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
                 </div>
@@ -36,7 +36,7 @@ const index = () => {
                     htmlFor="first-name"
                     className="block text-xs font-medium text-gray-600 ml-3"
                   >
-                    Alternate Email{' '}
+                    Alternate Email{" "}
                     <span className="text-gray-500">(optional)</span>
                   </label>
                   <div className="mt-1">
@@ -44,7 +44,7 @@ const index = () => {
                       type="text"
                       name="first-name"
                       id="first-name"
-                      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-80 sm:text-sm border-gray-300 rounded-md"
+                      className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-80 sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
                 </div>
@@ -62,7 +62,7 @@ const index = () => {
                       type="text"
                       name="first-name"
                       id="first-name"
-                      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-80 sm:text-sm border-gray-300 rounded-md"
+                      className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-80 sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
                 </div>
@@ -79,7 +79,7 @@ const index = () => {
                       type="text"
                       name="first-name"
                       id="first-name"
-                      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-80 sm:text-sm border-gray-300 rounded-md"
+                      className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-80 sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
                 </div>

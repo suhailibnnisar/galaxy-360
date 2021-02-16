@@ -30,7 +30,7 @@ const SignIn = (props: Props) => {
                   type="email"
                   autoComplete="email"
                   required
-                  className="appearance-none block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="appearance-none block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-geekBlue-500 focus:border-geekBlue-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -49,7 +49,7 @@ const SignIn = (props: Props) => {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="appearance-none block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="appearance-none block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-geekBlue-500 focus:border-geekBlue-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -60,7 +60,7 @@ const SignIn = (props: Props) => {
                   id="remember_me"
                   name="remember_me"
                   type="checkbox"
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                  className="h-4 w-4 text-geekBlue-600 focus:ring-geekBlue-500 border-gray-300 rounded"
                 />
                 <label
                   htmlFor="remember_me"
@@ -73,7 +73,7 @@ const SignIn = (props: Props) => {
               <div className="text-sm">
                 <a
                   href="#"
-                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                  className="font-medium text-geekBlue-600 hover:text-geekBlue-500"
                 >
                   Forgot your password?
                 </a>
@@ -82,7 +82,7 @@ const SignIn = (props: Props) => {
 
             <div className="text-sm">
               <Link href="/auth/signup">
-                <span className="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer">
+                <span className="font-medium text-geekBlue-600 hover:text-geekBlue-500 cursor-pointer">
                   Don't have an account?
                 </span>
               </Link>
@@ -91,7 +91,7 @@ const SignIn = (props: Props) => {
               <Link href="/">
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-geekBlue-600 hover:bg-geekBlue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-geekBlue-500"
                 >
                   Sign in
                 </button>

@@ -1,7 +1,7 @@
-import React from 'react';
-import FormFooter from '../../../../components/students/FormFooter';
-import StudentHeader from '../../../../components/students/StudentHeader';
-import StudentsLayout from '../../../../layouts/StudentsLayout';
+import React from "react";
+import FormFooter from "../../../../components/students/FormFooter";
+import StudentHeader from "../../../../components/students/StudentHeader";
+import StudentsLayout from "../../../../layouts/StudentsLayout";
 
 const index = () => {
   return (
@@ -38,7 +38,7 @@ const index = () => {
                       id="origin-option-0"
                       name="student_origin"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-900 cursor-pointer border-gray-300"
+                      className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-900 cursor-pointer border-gray-300"
                       checked
                     />
                   </div>
@@ -58,7 +58,7 @@ const index = () => {
                       id="origin-option-1"
                       name="student_origin"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
+                      className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-600 cursor-pointer border-gray-300"
                     />
                   </div>
                   <label
@@ -77,7 +77,7 @@ const index = () => {
                       id="origin-option-2"
                       name="student_origin"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
+                      className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-600 cursor-pointer border-gray-300"
                     />
                   </div>
                   <label
@@ -104,7 +104,7 @@ const index = () => {
                       id="title-option-0"
                       name="student_title"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-900 cursor-pointer border-gray-300"
+                      className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-900 cursor-pointer border-gray-300"
                       checked
                     />
                   </div>
@@ -123,7 +123,7 @@ const index = () => {
                       id="title-option-1"
                       name="student_title"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-900 cursor-pointer border-gray-300"
+                      className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-900 cursor-pointer border-gray-300"
                       checked
                     />
                   </div>
@@ -142,7 +142,7 @@ const index = () => {
                       id="title-option-2"
                       name="student_title"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-900 cursor-pointer border-gray-300"
+                      className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-900 cursor-pointer border-gray-300"
                       checked
                     />
                   </div>
@@ -175,7 +175,7 @@ const index = () => {
                       type="text"
                       name="first-name"
                       id="first-name"
-                      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-52 sm:text-sm border-gray-300 rounded-md"
+                      className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-52 sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
                 </div>
@@ -191,7 +191,7 @@ const index = () => {
                       type="text"
                       name="middle-name"
                       id="middle-name"
-                      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-52 sm:text-sm border-gray-300 rounded-md"
+                      className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-52 sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
                 </div>
@@ -207,7 +207,7 @@ const index = () => {
                       type="text"
                       name="last-name"
                       id="last-name"
-                      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-52 sm:text-sm border-gray-300 rounded-md"
+                      className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-52 sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
                 </div>
@@ -225,7 +225,7 @@ const index = () => {
                       id="gender-option-0"
                       name="student_gender"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-900 cursor-pointer border-gray-300"
+                      className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-900 cursor-pointer border-gray-300"
                       checked
                     />
                   </div>
@@ -233,7 +233,7 @@ const index = () => {
                     htmlFor="gender-option-0"
                     className="ml-3 flex flex-col cursor-pointer"
                   >
-                    <span className="block text-sm font-medium text-indigo-900">
+                    <span className="block text-sm font-medium text-geekBlue-900">
                       Male
                     </span>
                   </label>
@@ -244,7 +244,7 @@ const index = () => {
                       id="gender-option-1"
                       name="student_gender"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-900 cursor-pointer border-gray-300"
+                      className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-900 cursor-pointer border-gray-300"
                       checked
                     />
                   </div>
@@ -263,7 +263,7 @@ const index = () => {
                       id="gender-option-2"
                       name="student_gender"
                       type="radio"
-                      className="focus:ring-indigo-500 h-4 w-4 text-indigo-900 cursor-pointer border-gray-300"
+                      className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-900 cursor-pointer border-gray-300"
                       checked
                     />
                   </div>

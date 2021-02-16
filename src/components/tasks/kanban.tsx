@@ -34,10 +34,11 @@ const data = [
 
 interface Props {
   title: string;
+  setRowFormVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Kanban: React.FC<Props> = (props) => {
-  const { title } = props;
+  const { title, setRowFormVisible } = props;
   return (
     <div className="bg-gray-100 mr-4 border p-4 rounded-md border-gray-300">
       <div className="flex justify-between">
@@ -48,7 +49,11 @@ const Kanban: React.FC<Props> = (props) => {
       </div>
 
       {data.map((item) => {
-        return <Card task={item} key={`${item.id}`} />;
+        return (
+          <div onClick={() => setRowFormVisible(true)}>
+            <Card task={item} key={`${item.id}`} />
+          </div>
+        );
       })}
     </div>
   );

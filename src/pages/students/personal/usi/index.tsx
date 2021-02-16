@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import FormFooter from '../../../../components/students/FormFooter';
-import StudentHeader from '../../../../components/students/StudentHeader';
-import StudentsLayout from '../../../../layouts/StudentsLayout';
+import React, { useState } from "react";
+import FormFooter from "../../../../components/students/FormFooter";
+import StudentHeader from "../../../../components/students/StudentHeader";
+import StudentsLayout from "../../../../layouts/StudentsLayout";
 
 const index = () => {
   const [toggleUSI, setToggleUSI] = useState(false);
@@ -26,7 +26,7 @@ const index = () => {
                         id="usi-yes"
                         name="usi-status"
                         type="radio"
-                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-900 cursor-pointer border-gray-300"
+                        className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-900 cursor-pointer border-gray-300"
                         onClick={() => setToggleUSI(true)}
                       />
                     </div>
@@ -45,7 +45,7 @@ const index = () => {
                         id="usi-no"
                         name="usi-status"
                         type="radio"
-                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
+                        className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-600 cursor-pointer border-gray-300"
                         onClick={() => {
                           setToggleUSI(false);
                         }}
@@ -104,8 +104,8 @@ const index = () => {
                         type="text"
                         name="flat-unit"
                         id="flat-unit"
-                        className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm border-gray-300 rounded-md"
-                        style={{ width: '31rem' }}
+                        className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block sm:text-sm border-gray-300 rounded-md"
+                        style={{ width: "31rem" }}
                       />
                     </div>
                   </div>

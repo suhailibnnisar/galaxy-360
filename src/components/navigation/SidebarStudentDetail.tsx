@@ -42,18 +42,18 @@ const SidebarStudentDetail = () => {
                 <ol className="overflow-hidden">
                   <li className="relative pb-6">
                     <div
-                      className="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-indigo-600"
+                      className="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-geekBlue-600"
                       aria-hidden="true"
                     ></div>
                     <a href="#" className="relative flex items-start group">
                       <span className="h-9 flex items-center">
-                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-indigo-600 rounded-full group-hover:bg-indigo-800">
+                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-geekBlue-600 rounded-full group-hover:bg-geekBlue-800">
                           <span
                             className="h-9 flex items-center"
                             aria-hidden="true"
                           >
-                            <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-indigo-600 rounded-full">
-                              <span className="h-2.5 w-2.5 bg-indigo-600 rounded-full"></span>
+                            <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-geekBlue-600 rounded-full">
+                              <span className="h-2.5 w-2.5 bg-geekBlue-600 rounded-full"></span>
                             </span>
                           </span>
                         </span>
@@ -75,7 +75,7 @@ const SidebarStudentDetail = () => {
                                 className="flex-shrink-0 h-5 w-5 relative flex items-center justify-center"
                                 aria-hidden="true"
                               >
-                                <span className="absolute h-4 w-4 rounded-full bg-indigo-200"></span>
+                                <span className="absolute h-4 w-4 rounded-full bg-geekBlue-200"></span>
                                 <span className="relative block w-2 h-2 bg-geekBlue-600 rounded-full"></span>
                               </span>
                               <Link href="/students/personal/about-student">
@@ -131,7 +131,7 @@ const SidebarStudentDetail = () => {
                     ></div>
                     <a href="#" className="relative flex items-start group">
                       <span className="h-9 flex items-center">
-                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-indigo-600 rounded-full group-hover:bg-indigo-800">
+                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-geekBlue-600 rounded-full group-hover:bg-geekBlue-800">
                           <span
                             className="h-9 flex items-center"
                             aria-hidden="true"
@@ -154,7 +154,7 @@ const SidebarStudentDetail = () => {
                     ></div>
                     <a href="#" className="relative flex items-start group">
                       <span className="h-9 flex items-center">
-                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-indigo-600 rounded-full group-hover:bg-indigo-800">
+                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-geekBlue-600 rounded-full group-hover:bg-geekBlue-800">
                           <span
                             className="h-9 flex items-center"
                             aria-hidden="true"
@@ -175,7 +175,7 @@ const SidebarStudentDetail = () => {
                     ></div>
                     <a href="#" className="relative flex items-start group">
                       <span className="h-9 flex items-center">
-                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-indigo-600 rounded-full group-hover:bg-indigo-800">
+                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-geekBlue-600 rounded-full group-hover:bg-geekBlue-800">
                           <span
                             className="h-9 flex items-center"
                             aria-hidden="true"
@@ -199,7 +199,7 @@ const SidebarStudentDetail = () => {
                     ></div>
                     <a href="#" className="relative flex items-start group">
                       <span className="h-9 flex items-center">
-                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-indigo-600 rounded-full group-hover:bg-indigo-800">
+                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-geekBlue-600 rounded-full group-hover:bg-geekBlue-800">
                           <span
                             className="h-9 flex items-center"
                             aria-hidden="true"
@@ -223,7 +223,7 @@ const SidebarStudentDetail = () => {
                     ></div>
                     <a href="#" className="relative flex items-start group">
                       <span className="h-9 flex items-center">
-                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-indigo-600 rounded-full group-hover:bg-indigo-800">
+                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-geekBlue-600 rounded-full group-hover:bg-geekBlue-800">
                           <span
                             className="h-9 flex items-center"
                             aria-hidden="true"
@@ -242,7 +242,7 @@ const SidebarStudentDetail = () => {
                   <li className="relative pb-0">
                     <a href="#" className="relative flex items-start group">
                       <span className="h-9 flex items-center">
-                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-indigo-600 rounded-full group-hover:bg-indigo-800">
+                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-geekBlue-600 rounded-full group-hover:bg-geekBlue-800">
                           <span
                             className="h-9 flex items-center"
                             aria-hidden="true"

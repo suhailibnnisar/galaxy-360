@@ -388,7 +388,7 @@ const MainLayout: React.FC = ({ children }) => {
         </div>
         <div className="flex flex-col w-0 flex-1 overflow-hidden">
           <div className="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
-            <button className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
+            <button className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-geekBlue-500 md:hidden">
               <span className="sr-only">Open sidebar</span>
               {/* Heroicon name: outline/menu-alt-2 */}
               <svg
@@ -458,7 +458,7 @@ const MainLayout: React.FC = ({ children }) => {
                 </form>
               </div>
               <div className="ml-4 flex items-center md:ml-6">
-                <button className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <button className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-geekBlue-500">
                   <span className="sr-only">View notifications</span>
                   <svg
                     className="h-6 w-6"
@@ -480,7 +480,7 @@ const MainLayout: React.FC = ({ children }) => {
                   <div>
                     <button
                       type="button"
-                      className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-geekBlue-500 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+                      className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-geekBlue-500 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-geekBlue-500"
                       id="options-menu"
                       aria-haspopup="true"
                       aria-expanded="true"
@@ -571,7 +571,7 @@ const MainLayout: React.FC = ({ children }) => {
                 <div className="ml-3 relative">
                   <div>
                     <button
-                      className="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-geekBlue-500"
                       id="user-menu"
                       aria-haspopup="true"
                     >

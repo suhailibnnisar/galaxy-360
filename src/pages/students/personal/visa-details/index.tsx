@@ -1,7 +1,7 @@
-import React from 'react';
-import FormFooter from '../../../../components/students/FormFooter';
-import StudentHeader from '../../../../components/students/StudentHeader';
-import StudentsLayout from '../../../../layouts/StudentsLayout';
+import React from "react";
+import FormFooter from "../../../../components/students/FormFooter";
+import StudentHeader from "../../../../components/students/StudentHeader";
+import StudentsLayout from "../../../../layouts/StudentsLayout";
 
 const index = () => {
   return (
@@ -41,7 +41,7 @@ const index = () => {
                         id="visa-type-student"
                         name="student_title"
                         type="radio"
-                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-900 cursor-pointer border-gray-300"
+                        className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-900 cursor-pointer border-gray-300"
                         checked
                       />
                     </div>
@@ -60,7 +60,7 @@ const index = () => {
                         id="visa-type-tourist"
                         name="student_title"
                         type="radio"
-                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-900 cursor-pointer border-gray-300"
+                        className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-900 cursor-pointer border-gray-300"
                         checked
                       />
                     </div>
@@ -79,7 +79,7 @@ const index = () => {
                         id="visa-type-workingHoliday"
                         name="student_title"
                         type="radio"
-                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-900 cursor-pointer border-gray-300"
+                        className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-900 cursor-pointer border-gray-300"
                         checked
                       />
                     </div>
@@ -126,7 +126,7 @@ const index = () => {
                       type="text"
                       name="visa-number"
                       id="visa-number"
-                      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-80 sm:text-sm border-gray-300 rounded-md"
+                      className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-80 sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
                 </div>
@@ -164,7 +164,7 @@ const index = () => {
                         type="text"
                         name="day-expiry"
                         id="day-expiry"
-                        className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-16 sm:text-sm border-gray-300 rounded-md"
+                        className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-16 sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
                   </div>
@@ -180,7 +180,7 @@ const index = () => {
                         type="text"
                         name="month-expiry"
                         id="month-expiry"
-                        className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-16 sm:text-sm border-gray-300 rounded-md"
+                        className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-16 sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
                   </div>
@@ -196,7 +196,7 @@ const index = () => {
                         type="text"
                         name="year-expiry"
                         id="year-expiry"
-                        className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-28 sm:text-sm border-gray-300 rounded-md"
+                        className="shadow-sm focus:ring-geekBlue-500 focus:border-geekBlue-500 block w-28 sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
                   </div>

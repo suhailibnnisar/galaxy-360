@@ -39,7 +39,7 @@ const Select: React.FC<Props> = ({
           aria-labelledby="listbox-label"
           className={`relative ${
             width || "w-40"
-          } bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
+          } bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-geekBlue-500 focus:border-geekBlue-500 sm:text-sm`}
           onFocus={() => setToggle(!toggle)}
           onBlur={() => setToggle(false)}
         >
@@ -80,7 +80,7 @@ const Select: React.FC<Props> = ({
                   <li
                     id={`listbox-option-${i}`}
                     role="option"
-                    className="text-gray-900 cursor-pointer select-none relative py-2 pl-3 pr-9 :hover-bg-indigo-600"
+                    className="text-gray-900 cursor-pointer select-none relative py-2 pl-3 pr-9 :hover-bg-geekBlue-600"
                     onClick={() => {
                       setSelected(i);
                       setToggle(false);
@@ -88,7 +88,7 @@ const Select: React.FC<Props> = ({
                   >
                     <span className="font-normal block">{option}</span>
                     {selected === i && (
-                      <span className="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4">
+                      <span className="text-geekBlue-600 absolute inset-y-0 right-0 flex items-center pr-4">
                         <svg
                           className="h-5 w-5"
                           xmlns="http://www.w3.org/2000/svg"
