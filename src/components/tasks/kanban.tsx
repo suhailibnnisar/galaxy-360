@@ -32,11 +32,16 @@ const data = [
   },
 ];
 
-const Kanban: React.FC = () => {
+interface Props {
+  title: string;
+}
+
+const Kanban: React.FC<Props> = (props) => {
+  const { title } = props;
   return (
     <div className="bg-gray-100 mr-4 border p-4 rounded-md border-gray-300">
       <div className="flex justify-between">
-        <span className="font-semibold">Todo</span>
+        <span className="font-semibold">{title}</span>
         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-gray-200 text-gray-800">
           4 Tasks
         </span>

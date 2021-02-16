@@ -459,8 +459,8 @@ const Tasks: React.FC = () => {
               className="flex pb-4 h-full overflow-x-scroll"
               style={{ height: "68vh" }}
             >
-              {["", "", "", "", ""].map((item) => (
-                <Kanban />
+              {["Todo", "In Progress", "Done", "Review"].map((item) => (
+                <Kanban title={item} />
               ))}
             </div>
           ) : (
