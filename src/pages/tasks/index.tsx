@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import MainLayout from "../../layouts/MainLayout";
 import Select from "../../components/includes/Select";
-import CustomScroll from "react-custom-scroll";
 
 import AddTaskForm, {
   FilledTaskFormDetail,
 } from "../../components/main/tasks/AddTaskForms";
 import { RodalModal as Modal } from "../../components/includes/Modal";
 import CustomizeTaskForm from "../../components/main/tasks/CustomizeTaskForm";
-import Card from "../../components/tasks/card";
 import Kanban from "../../components/tasks/kanban";
 
 const COLOR_DEPARTMENT_MAPPING = {
@@ -26,29 +24,31 @@ const COLOR_PRIORITY_MAPPING = {
 const data = [
   {
     id: 1,
-    name: "Lorem Ipsum dolar soto",
+    name: "Get student profile",
     department: "Documentation",
     priority: "Medium",
     assignee: {
       image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=mR7Mc7kSlc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-      name: "Sannani Awale",
+        "https://pbs.twimg.com/profile_images/1100866378586714112/7C-Asgzb_400x400.jpg",
+      name: "Jenny Wilson",
     },
-    description: "Lorem ipsum consectetur adipiscing elit",
+    description:
+      "The student profile shows the student information your institution allows, such as information on their academic load and scholarship eligibility, as well as course performance, including probability of passing and course activity",
     dueDate: new Date(),
     checked: false,
   },
   {
     id: 2,
-    name: "Lorem Ipsum dolar soto",
+    name: "Check for current investment",
     department: "Finance",
     priority: "High",
     assignee: {
       image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=mR7Mc7kSlc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-      name: "Sannani Awale",
+        "https://www.planbconsult.net/wp-content/uploads/2017/10/Plan-B-11-7-18-Tom-Cook-Photo-114.jpg",
+      name: "Tom Cook",
     },
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+    description:
+      "An investment is an asset or item that is purchased with the hope that it will generate income or appreciate in value at some point in the future.",
     dueDate: new Date(),
     checked: false,
   },
@@ -74,7 +74,7 @@ const Tasks: React.FC = () => {
       <Modal visible={customizeVisible} setVisible={setCustomizeVisible}>
         <CustomizeTaskForm setCustomizeVisible={setCustomizeVisible} />
       </Modal>
-      <div className="absolute bottom-6 right-6">
+      <div className="absolute bottom-6 right-6 z-50">
         <button
           type="button"
           className="inline-flex items-center p-3 border border-transparent rounded-full shadow-xl transition-all duration-75 text-white bg-geekBlue-500 hover:bg-geekBlue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-geekBlue-500"
@@ -255,8 +255,8 @@ const Tasks: React.FC = () => {
             <div className="flex flex-col">
               <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                  <div className="overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table className="min-w-full divide-y divide-gray-200">
+                  <div className="overflow-hidden border-b border-gray-200">
+                    <table className="min-w-full w-full divide-y divide-gray-200 ">
                       <thead className="">
                         <tr>
                           <th />
@@ -360,7 +360,10 @@ const Tasks: React.FC = () => {
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="bg-white divide-y divide-gray-200 rounded-md overflow-y-hidden">
+                      <tbody
+                        className="bg-white divide-y divide-gray-200 overflow-y-hidden rounded-2xl"
+                        id="__xeromi_task-tbody"
+                      >
                         {tasks.map((item) => {
                           const month = item.dueDate.toLocaleString("default", {
                             month: "short",
@@ -387,7 +390,7 @@ const Tasks: React.FC = () => {
                             <tr
                               key={item.id}
                               onClick={() => setRowFormVisible(true)}
-                              className="rounded-md"
+                              className="cursor-pointer hover:bg-gray-50 transition-all duration-100"
                             >
                               <td className="pl-6 whitespace-nowrap">
                                 <input
