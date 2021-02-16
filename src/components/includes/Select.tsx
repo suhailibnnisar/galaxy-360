@@ -67,7 +67,7 @@ const Select: React.FC<Props> = ({
           leave="transition ease-in duration-100"
           leaveTo="opacity-0"
         >
-          <div className="absolute mt-1 w-full rounded-md bg-white shadow-lg">
+          <div className="absolute mt-1 w-full rounded-md bg-white z-50 shadow-lg">
             <ul
               tabIndex={-1}
               role="listbox"
