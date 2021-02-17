@@ -454,9 +454,9 @@ const Tasks: React.FC = () => {
                                       src={item.assignee.image}
                                       alt=""
                                     />
-                                    <p className="text-sm text-gray-600">
+                                    <span className="text-sm text-gray-600">
                                       {item.assignee.name}
-                                    </p>
+                                    </span>
                                   </td>
                                   <td className="px-6 whitespace-nowrap">
                                     <td className="flex items-center whitespace-nowrap text-sm text-gray-600">
