@@ -57,7 +57,7 @@ const TaskFormInitialize: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className="bg-white flex flex-col w-full p-6 rounded-md m-3.5"
+      className="bg-white flex flex-col p-6 rounded-md m-3.5"
       style={{ width: "fit-content" }}
     >
       <div className="flex flex-row w-96 items-center justify-between mb-6">
@@ -874,7 +874,11 @@ const TaskFormDetail: React.FC<Props> = ({ changePage, handleModalClose }) => {
         {/* Right side */}
         <div
           className="flex flex-col w-full border-solid border-r-0  border-b-0 border-gray-200"
-          style={{ borderLeftWidth: "1px", borderTopWidth: "1px" }}
+          style={{
+            borderLeftWidth: "1px",
+            borderTopWidth: "1px",
+            width: "100%",
+          }}
         >
           <div
             className="flex flex-row items-center w-full p-6 border-solid border-gray-200"
