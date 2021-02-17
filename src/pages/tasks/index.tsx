@@ -483,7 +483,7 @@ const Tasks: React.FC = () => {
                 className="flex pb-4 h-full overflow-x-scroll"
                 style={{ height: "68vh" }}
               >
-                {["Todo", "In Progress", "Done", "Review"].map((item) => (
+                {["Todo", "In Progress", "Review", "Done"].map((item) => (
                   <Kanban setRowFormVisible={setRowFormVisible} title={item} />
                 ))}
               </div>
