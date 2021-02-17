@@ -32,8 +32,7 @@ const data = [
         "https://pbs.twimg.com/profile_images/1100866378586714112/7C-Asgzb_400x400.jpg",
       name: "Jenny Wilson",
     },
-    description:
-      "The student profile shows the student information your institution allows, such as information on their academic load and scholarship eligibility, as well as course performance, including probability of passing and course activity",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     dueDate: new Date(),
     checked: false,
   },
@@ -47,8 +46,7 @@ const data = [
         "https://www.planbconsult.net/wp-content/uploads/2017/10/Plan-B-11-7-18-Tom-Cook-Photo-114.jpg",
       name: "Tom Cook",
     },
-    description:
-      "An investment is an asset or item that is purchased with the hope that it will generate income or appreciate in value at some point in the future.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     dueDate: new Date(),
     checked: false,
   },
