@@ -57,7 +57,7 @@ const TaskFormInitialize: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className="bg-white flex flex-col w-full p-6 rounded-md m-3.5"
+      className="bg-white flex flex-col  p-6 rounded-md m-3.5"
       style={{ width: "fit-content" }}
     >
       <div className="flex flex-row w-96 items-center justify-between mb-6">
