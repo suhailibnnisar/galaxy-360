@@ -7,10 +7,7 @@ const MainLayout: React.FC = ({ children }) => {
 
   return (
     <div>
-      <div
-        className="h-screen flex overflow-hidden"
-        style={{ backgroundColor: "#f1f5f9" }}
-      >
+      <div className="h-screen flex" style={{ backgroundColor: "#f1f5f9" }}>
         {/* Off-canvas menu for mobile, show/hide based on off-canvas menu state. */}
         <div className="md:hidden">
           <div className="fixed inset-0 flex z-40">
