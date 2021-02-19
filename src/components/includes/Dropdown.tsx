@@ -12,7 +12,8 @@ const Dropdown = () => {
           id="options-menu"
           aria-haspopup="true"
           aria-expanded="true"
-          onClick={() => setToggle((prevState) => !prevState)}
+          onFocus={() => setToggle((prevState) => !prevState)}
+          onBlur={() => setToggle(false)}
         >
           Options
           <svg

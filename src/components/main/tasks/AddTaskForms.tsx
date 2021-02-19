@@ -57,7 +57,7 @@ const TaskFormInitialize: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className="bg-white flex flex-col p-6 rounded-md m-3.5"
+      className="bg-white flex flex-col p-6 rounded-md m-3.5 __xeromi_task-add--popup"
       style={{ width: "fit-content" }}
     >
       <div className="flex flex-row w-96 items-center justify-between mb-6">
@@ -113,9 +113,13 @@ const TaskFormInitialize: React.FC<Props> = ({
 export const FilledTaskFormDetail: React.FC<{ setVisible: any }> = ({
   setVisible,
 }) => {
+  const [description, setDescription] = useState(
+    "eType is a software that suggests, completes and translates words while you type in any program on Windows PC.  It supports various languages - meaning you can type in English and see suggestions for words in English or type in a different language and see suggestions for that language. You can also roll over the mouse on any word on the eType bar to see translation for that word. eType comes with a built-in English dictionary and thesaurus.. The software works similar to the auto-complete you have on your smartphone but is built for Windows PC computers. eType helps you write better, prevents spelling errors and improves your writing confidence."
+  );
+
   return (
     <div
-      className="bg-white pt-6 w-full rounded-lg overflow-hidden"
+      className="bg-white pt-6 w-full rounded-lg overflow-hidden __xeromi_task-add--popup"
       style={{ width: "50.5rem" }}
     >
       <div className="flex flex-row items-center justify-between pb-6 px-6 shadow-sm">
@@ -204,12 +208,8 @@ export const FilledTaskFormDetail: React.FC<{ setVisible: any }> = ({
               style={{ width: "29.5rem" }}
               className="bg-gray-100 shadow-sm focus:bg-gray-50 focus:ring-gray-300 focus:border-gray-300 mt-1 block w-full sm:text-sm border-transparent rounded-md placeholder-gray-400 text-xs leading-4 font-normal h-full"
               placeholder="Add more detailed description"
-              value="eType is a software that suggests, completes and translates words while you type in any program on Windows PC.
-
-              It supports various languages - meaning you can type in English and see suggestions for words in English or type in a different language and see suggestions for that language. You can also roll over the mouse on any word on the eType bar to see translation for that word. eType comes with a built-in English dictionary and thesaurus.. The software works similar to the auto-complete you have on your smartphone but is built for Windows PC computers.
-              
-              eType helps you write better, prevents spelling errors and improves your writing confidence.
-              "
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>
           <div className="mt-6">
@@ -565,7 +565,7 @@ const TaskFormDetail: React.FC<Props> = ({ changePage, handleModalClose }) => {
 
   return (
     <div
-      className="bg-white pt-6 w-full rounded-lg overflow-hidden"
+      className="bg-white pt-6 w-full rounded-lg overflow-hidden __xeromi_task-add--popup"
       style={{ width: "50.5rem" }}
     >
       <div className="flex flex-row items-center justify-between pb-6 px-6 shadow-sm">
@@ -1048,14 +1048,20 @@ const index: React.FC<{ handleModalClose: any }> = ({ handleModalClose }) => {
     <>
       {page === "FIRST" ? (
         <TaskFormInitialize
-          handleModalClose={handleModalClose}
+          handleModalClose={() => {
+            handleModalClose();
+            setPage("FIRST");
+          }}
           changePage={() => {
             setPage("LAST");
           }}
         />
       ) : (
         <TaskFormDetail
-          handleModalClose={handleModalClose}
+          handleModalClose={() => {
+            handleModalClose();
+            setPage("FIRST");
+          }}
           changePage={() => {
             handleModalClose();
             setPage("FIRST");

@@ -66,3 +66,17 @@ a {
   width: fit-content;
   /* max-width: 100%; */
 }
+
+.__xeromi_task-add--popup {
+  animation-name: popupAnimation;
+  animation-duration: 0.5s;
+}
+
+@keyframes popupAnimation {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
