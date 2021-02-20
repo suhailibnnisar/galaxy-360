@@ -1,3 +1,4 @@
+import { Transition } from "@tailwindui/react";
 import React, { useState } from "react";
 
 interface Props {
@@ -116,6 +117,8 @@ export const FilledTaskFormDetail: React.FC<{ setVisible: any }> = ({
   const [description, setDescription] = useState(
     "eType is a software that suggests, completes and translates words while you type in any program on Windows PC.  It supports various languages - meaning you can type in English and see suggestions for words in English or type in a different language and see suggestions for that language. You can also roll over the mouse on any word on the eType bar to see translation for that word. eType comes with a built-in English dictionary and thesaurus.. The software works similar to the auto-complete you have on your smartphone but is built for Windows PC computers. eType helps you write better, prevents spelling errors and improves your writing confidence."
   );
+  const [togglePerson, setTogglePerson] = useState(false);
+  const [toggleCategory, setToggleCategory] = useState(false);
 
   return (
     <div
@@ -150,7 +153,55 @@ export const FilledTaskFormDetail: React.FC<{ setVisible: any }> = ({
                 </p>
               </a>
             </div>
-            {downIcon}
+            <div className="relative">
+              <button
+                className="cursor-pointer border-none outline-none focus:outline-none"
+                onFocus={() => setTogglePerson(!togglePerson)}
+                onBlur={() => setTogglePerson(false)}
+              >
+                {downIcon}
+              </button>
+              <Transition
+                show={togglePerson}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+                  <div
+                    className="py-1"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="options-menu"
+                  >
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      role="menuitem"
+                    >
+                      Devon Webb
+                    </a>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      role="menuitem"
+                    >
+                      Tanya Fox
+                    </a>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      role="menuitem"
+                    >
+                      Helen Schmidt
+                    </a>
+                  </div>
+                </div>
+              </Transition>
+            </div>
           </div>
           <div className="flex flex-row items-center  mr-6">
             <span className="inline-flex items-center justify-center h-7 w-7 rounded-full bg-gray-500 mr-1">
@@ -165,7 +216,55 @@ export const FilledTaskFormDetail: React.FC<{ setVisible: any }> = ({
                 </p>
               </a>
             </div>
-            {downIcon}
+            <div className="relative">
+              <button
+                className="cursor-pointer border-none outline-none focus:outline-none"
+                onFocus={() => setToggleCategory(!toggleCategory)}
+                onBlur={() => setToggleCategory(false)}
+              >
+                {downIcon}
+              </button>
+              <Transition
+                show={toggleCategory}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+                  <div
+                    className="py-1"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="options-menu"
+                  >
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      role="menuitem"
+                    >
+                      Finance
+                    </a>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      role="menuitem"
+                    >
+                      Education
+                    </a>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      role="menuitem"
+                    >
+                      Documentation
+                    </a>
+                  </div>
+                </div>
+              </Transition>
+            </div>
           </div>
         </div>
         <div className="inline-block" onClick={() => setVisible(false)}>
@@ -562,6 +661,8 @@ export const FilledTaskFormDetail: React.FC<{ setVisible: any }> = ({
 const TaskFormDetail: React.FC<Props> = ({ changePage, handleModalClose }) => {
   const [addCheckList, setAddCheckList] = useState<boolean>(false);
   const [addAttachment, setAddAttachment] = useState<boolean>(false);
+  const [togglePerson, setTogglePerson] = useState(false);
+  const [toggleCategory, setToggleCategory] = useState(false);
 
   return (
     <div
@@ -597,7 +698,55 @@ const TaskFormDetail: React.FC<Props> = ({ changePage, handleModalClose }) => {
                 </p>
               </a>
             </div>
-            {downIcon}
+            <div className="relative">
+              <button
+                className="cursor-pointer border-none outline-none focus:outline-none"
+                onFocus={() => setTogglePerson(!togglePerson)}
+                onBlur={() => setTogglePerson(false)}
+              >
+                {downIcon}
+              </button>
+              <Transition
+                show={togglePerson}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+                  <div
+                    className="py-1"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="options-menu"
+                  >
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      role="menuitem"
+                    >
+                      Devon Webb
+                    </a>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      role="menuitem"
+                    >
+                      Tanya Fox
+                    </a>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      role="menuitem"
+                    >
+                      Helen Schmidt
+                    </a>
+                  </div>
+                </div>
+              </Transition>
+            </div>
           </div>
           <div className="flex flex-row items-center  mr-6">
             <span className="inline-flex items-center justify-center h-7 w-7 rounded-full bg-gray-500 mr-1">
@@ -612,7 +761,55 @@ const TaskFormDetail: React.FC<Props> = ({ changePage, handleModalClose }) => {
                 </p>
               </a>
             </div>
-            {downIcon}
+            <div className="relative">
+              <button
+                className="cursor-pointer border-none outline-none focus:outline-none"
+                onFocus={() => setToggleCategory(!toggleCategory)}
+                onBlur={() => setToggleCategory(false)}
+              >
+                {downIcon}
+              </button>
+              <Transition
+                show={toggleCategory}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+                  <div
+                    className="py-1"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="options-menu"
+                  >
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      role="menuitem"
+                    >
+                      Finance
+                    </a>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      role="menuitem"
+                    >
+                      Education
+                    </a>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      role="menuitem"
+                    >
+                      Documentation
+                    </a>
+                  </div>
+                </div>
+              </Transition>
+            </div>
           </div>
         </div>
         <div className="inline-block" onClick={handleModalClose}>
