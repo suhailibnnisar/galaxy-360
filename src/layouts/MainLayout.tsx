@@ -274,17 +274,19 @@ const MainLayout: React.FC = ({ children }) => {
                     <a className="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                       <svg
                         className="text-gray-400 group-hover:text-gray-300 mr-3 h-6 w-6"
-                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="20"
+                        viewBox="0 0 16 20"
                         fill="none"
-                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
                         stroke="currentColor"
-                        aria-hidden="true"
                       >
                         <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+                          d="M5 10H11M5 14H11M13 19H3C1.89543 19 1 18.1046 1 17V3C1 1.89543 1.89543 1 3 1H8.58579C8.851 1 9.10536 1.10536 9.29289 1.29289L14.7071 6.70711C14.8946 6.89464 15 7.149 15 7.41421V17C15 18.1046 14.1046 19 13 19Z"
+                          // stroke="#A6C8FF"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                         />
                       </svg>
                       Applications
@@ -296,17 +298,17 @@ const MainLayout: React.FC = ({ children }) => {
                       {/* Heroicon name: outline/calendar */}
                       <svg
                         className="text-gray-400 group-hover:text-gray-300 mr-3 h-6 w-6"
+                        width="18"
+                        height="12"
+                        viewBox="0 0 18 12"
+                        fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
                         stroke="currentColor"
-                        aria-hidden="true"
                       >
                         <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M17.0481 0.351472C17.5168 0.820101 17.5168 1.5799 17.0481 2.04853L7.44814 11.6485C6.97951 12.1172 6.21971 12.1172 5.75108 11.6485L0.951081 6.84853C0.482452 6.3799 0.482452 5.6201 0.951081 5.15147C1.41971 4.68284 2.17951 4.68284 2.64814 5.15147L6.59961 9.10294L15.3511 0.351472C15.8197 -0.117157 16.5795 -0.117157 17.0481 0.351472Z"
                         />
                       </svg>
                       Tasks
@@ -325,10 +327,10 @@ const MainLayout: React.FC = ({ children }) => {
                         aria-hidden="true"
                       >
                         <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+                          d="M6 9H6.01M10 9H10.01M14 9H14.01M19 9C19 13.4183 14.9706 17 10 17C8.46073 17 7.01172 16.6565 5.74467 16.0511L1 17L2.39499 13.28C1.51156 12.0423 1 10.5743 1 9C1 4.58172 5.02944 1 10 1C14.9706 1 19 4.58172 19 9Z"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                         />
                       </svg>
                       Communication
@@ -347,10 +349,10 @@ const MainLayout: React.FC = ({ children }) => {
                         aria-hidden="true"
                       >
                         <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                          d="M17 19V3C17 1.89543 16.1046 1 15 1H5C3.89543 1 3 1.89543 3 3V19M17 19L19 19M17 19H12M3 19L1 19M3 19H8M7 4.99998H8M7 8.99998H8M12 4.99998H13M12 8.99998H13M8 19V14C8 13.4477 8.44772 13 9 13H11C11.5523 13 12 13.4477 12 14V19M8 19H12"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                         />
                       </svg>
                       Providers
@@ -369,10 +371,10 @@ const MainLayout: React.FC = ({ children }) => {
                         aria-hidden="true"
                       >
                         <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                          d="M10 2.25278V15.2528M10 2.25278C8.83211 1.47686 7.24649 1 5.5 1C3.75351 1 2.16789 1.47686 1 2.25278V15.2528C2.16789 14.4769 3.75351 14 5.5 14C7.24649 14 8.83211 14.4769 10 15.2528M10 2.25278C11.1679 1.47686 12.7535 1 14.5 1C16.2465 1 17.8321 1.47686 19 2.25278V15.2528C17.8321 14.4769 16.2465 14 14.5 14C12.7535 14 11.1679 14.4769 10 15.2528"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                         />
                       </svg>
                       Course Finder
