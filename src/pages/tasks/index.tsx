@@ -364,114 +364,123 @@ const Tasks: React.FC = () => {
                           className="bg-white divide-y divide-gray-200 overflow-y-hidden rounded-2xl"
                           id="__xeromi_task-tbody"
                         >
-                          {initialData.map((item) => {
-                            const month = item.dueDate.toLocaleString(
-                              "default",
-                              {
-                                month: "short",
-                              }
-                            );
-
-                            const day = item.dueDate.getMonth();
-
-                            const setChecked = () => {
-                              setTasks(
-                                tasks.map((task) => {
-                                  if (task.id === item.id) {
-                                    return {
-                                      ...task,
-                                      checked: !item.checked,
-                                    };
-                                  } else {
-                                    return task;
-                                  }
-                                })
+                          {initialData
+                            .sort(() => 0.5 - Math.random())
+                            .map((a) => ({ sort: Math.random(), value: a }))
+                            .sort((a, b) => a.sort - b.sort)
+                            .map((a) => a.value)
+                            .map((item) => {
+                              const month = item.dueDate.toLocaleString(
+                                "default",
+                                {
+                                  month: "short",
+                                }
                               );
-                            };
 
-                            return (
-                              <tr
-                                key={item.id}
-                                onClick={() => setRowFormVisible(true)}
-                                className="cursor-pointer hover:bg-gray-50 transition-all duration-100"
-                              >
-                                <td className="pl-6 whitespace-nowrap">
-                                  <input
-                                    id="remember_me"
-                                    name="remember_me"
-                                    type="checkbox"
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                    }}
-                                    checked={item.checked}
-                                    onChange={setChecked}
-                                    className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-600 cursor-pointer border-gray-300"
-                                  />
-                                </td>
-                                <td className="px-6 whitespace-nowrap">
-                                  <td
-                                    className={`whitespace-nowrap text-sm text-gray-600 ${
-                                      item.checked ? "line-through" : ""
-                                    }`}
-                                  >
-                                    {item.name}
+                              const day = item.dueDate.getMonth();
+
+                              const setChecked = () => {
+                                setTasks(
+                                  tasks.map((task) => {
+                                    if (task.id === item.id) {
+                                      return {
+                                        ...task,
+                                        checked: !item.checked,
+                                      };
+                                    } else {
+                                      return task;
+                                    }
+                                  })
+                                );
+                              };
+
+                              return (
+                                <tr
+                                  key={item.id}
+                                  onClick={() => setRowFormVisible(true)}
+                                  className="cursor-pointer hover:bg-gray-50 transition-all duration-100"
+                                >
+                                  <td className="pl-6 whitespace-nowrap">
+                                    <input
+                                      id="remember_me"
+                                      name="remember_me"
+                                      type="checkbox"
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                      }}
+                                      checked={item.checked}
+                                      onChange={setChecked}
+                                      className="focus:ring-geekBlue-500 h-4 w-4 text-geekBlue-600 cursor-pointer border-gray-300"
+                                    />
                                   </td>
-                                </td>
-                                <td className="px-6 flex justify-center py-4 whitespace-nowrap text-center">
-                                  <span
-                                    className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                                      COLOR_DEPARTMENT_MAPPING[item.department]
-                                    } ${COLOR_DEPARTMENT_MAPPING[
-                                      item.department
-                                    ]
-                                      .replace("100", "800")
-                                      .replace("bg", "text")}`}
-                                  >
-                                    {item.department}
-                                  </span>
-                                </td>
-                                <td className="px-6 py-4 whitespace-nowrap text-center">
-                                  <span
-                                    className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                                      COLOR_PRIORITY_MAPPING[item.priority]
-                                    }  ${COLOR_PRIORITY_MAPPING[item.priority]
-                                      .replace("100", "800")
-                                      .replace("bg", "text")}`}
-                                  >
-                                    {item.priority}
-                                  </span>
-                                </td>
-                                <td className="flex items-center py-4 whitespace-nowrap text-sm text-gray-500">
-                                  <img
-                                    className="inline-block h-6 w-6 rounded-full mr-2"
-                                    src={item.assignee.image}
-                                    alt=""
-                                  />
-                                  {item.assignee.name}
-                                </td>
-                                <td className="px-6 whitespace-nowrap">
-                                  <td className="flex items-center whitespace-nowrap text-sm text-gray-600">
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      fill="none"
-                                      viewBox="0 0 24 24"
-                                      stroke="currentColor"
-                                      className="h-5 w-5 text-gray-400 mr-2"
+                                  <td className="px-6 whitespace-nowrap">
+                                    <td
+                                      className={`whitespace-nowrap text-sm text-gray-600 ${
+                                        item.checked ? "line-through" : ""
+                                      }`}
                                     >
-                                      <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                                      />
-                                    </svg>
-                                    {month} {day}
+                                      {item.name}
+                                    </td>
                                   </td>
-                                </td>
-                                <td />
-                              </tr>
-                            );
-                          })}
+                                  <td className="px-6 flex justify-center py-4 whitespace-nowrap text-center">
+                                    <span
+                                      className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                                        COLOR_DEPARTMENT_MAPPING[
+                                          item.department
+                                        ]
+                                      } ${COLOR_DEPARTMENT_MAPPING[
+                                        item.department
+                                      ]
+                                        .replace("100", "800")
+                                        .replace("bg", "text")}`}
+                                    >
+                                      {item.department}
+                                    </span>
+                                  </td>
+                                  <td className="px-6 py-4 whitespace-nowrap text-center">
+                                    <span
+                                      className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                                        COLOR_PRIORITY_MAPPING[item.priority]
+                                      }  ${COLOR_PRIORITY_MAPPING[item.priority]
+                                        .replace("100", "800")
+                                        .replace("bg", "text")}`}
+                                    >
+                                      {item.priority}
+                                    </span>
+                                  </td>
+                                  <td className="flex items-center py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <img
+                                      className="inline-block h-6 w-6 rounded-full mr-2"
+                                      src={item.assignee.image}
+                                      alt=""
+                                    />
+                                    <span className="text-sm text-gray-600">
+                                      {item.assignee.name}
+                                    </span>
+                                  </td>
+                                  <td className="px-6 whitespace-nowrap">
+                                    <td className="flex items-center whitespace-nowrap text-sm text-gray-600">
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        className="h-5 w-5 text-gray-400 mr-2"
+                                      >
+                                        <path
+                                          stroke-linecap="round"
+                                          stroke-linejoin="round"
+                                          stroke-width="2"
+                                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                        />
+                                      </svg>
+                                      {month} {day}
+                                    </td>
+                                  </td>
+                                  <td />
+                                </tr>
+                              );
+                            })}
                         </tbody>
                       </table>
                     </div>

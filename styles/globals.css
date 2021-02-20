@@ -17,6 +17,12 @@ a {
     "Noto Color Emoji";
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+  font-family: Inter, serif !important;
+}
+
 .rodal,
 .rodal-mask {
   display: -webkit-box;
@@ -64,7 +70,6 @@ a {
   justify-content: center;
   position: relative !important;
   width: fit-content;
-  /* max-width: 100%; */
 }
 
 .__xeromi_task-add--popup {

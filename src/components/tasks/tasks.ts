@@ -7,7 +7,7 @@ export const initialData = [
     priority: "Medium",
     assignee: {
       image:
-        "https://pbs.twimg.com/profile_images/1100866378586714112/7C-Asgzb_400x400.jpg",
+        "https://blogs.mcgill.ca/caps/files/2012/05/sheryl-sandberg-could-become-one-of-the-wealthiest-self-made-women-in-the-world.jpg",
       name: "Jenny Wilson",
     },
     description: "Lorem ipsum dolor sit amet, consectetur",
@@ -22,7 +22,7 @@ export const initialData = [
     priority: "Medium",
     assignee: {
       image:
-        "https://pbs.twimg.com/profile_images/1100866378586714112/7C-Asgzb_400x400.jpg",
+        "https://blogs.mcgill.ca/caps/files/2012/05/sheryl-sandberg-could-become-one-of-the-wealthiest-self-made-women-in-the-world.jpg",
       name: "Jenny Wilson",
     },
     description: "Lorem ipsum dolor sit amet, consectetur",
@@ -37,7 +37,7 @@ export const initialData = [
     priority: "Medium",
     assignee: {
       image:
-        "https://pbs.twimg.com/profile_images/1100866378586714112/7C-Asgzb_400x400.jpg",
+        "https://blogs.mcgill.ca/caps/files/2012/05/sheryl-sandberg-could-become-one-of-the-wealthiest-self-made-women-in-the-world.jpg",
       name: "Jenny Wilson",
     },
     description: "Lorem ipsum dolor sit amet, consectetur",
@@ -52,7 +52,7 @@ export const initialData = [
     priority: "Medium",
     assignee: {
       image:
-        "https://pbs.twimg.com/profile_images/1100866378586714112/7C-Asgzb_400x400.jpg",
+        "https://blogs.mcgill.ca/caps/files/2012/05/sheryl-sandberg-could-become-one-of-the-wealthiest-self-made-women-in-the-world.jpg",
       name: "Jenny Wilson",
     },
     description: "Lorem ipsum dolor sit amet, consectetur",
@@ -67,7 +67,7 @@ export const initialData = [
     priority: "Medium",
     assignee: {
       image:
-        "https://pbs.twimg.com/profile_images/1100866378586714112/7C-Asgzb_400x400.jpg",
+        "https://blogs.mcgill.ca/caps/files/2012/05/sheryl-sandberg-could-become-one-of-the-wealthiest-self-made-women-in-the-world.jpg",
       name: "Jenny Wilson",
     },
     description: "Lorem ipsum dolor sit amet, consectetur",
@@ -82,7 +82,7 @@ export const initialData = [
     priority: "Medium",
     assignee: {
       image:
-        "https://pbs.twimg.com/profile_images/1100866378586714112/7C-Asgzb_400x400.jpg",
+        "https://blogs.mcgill.ca/caps/files/2012/05/sheryl-sandberg-could-become-one-of-the-wealthiest-self-made-women-in-the-world.jpg",
       name: "Jenny Wilson",
     },
     description: "Lorem ipsum dolor sit amet, consectetur",
@@ -97,7 +97,7 @@ export const initialData = [
     priority: "Medium",
     assignee: {
       image:
-        "https://pbs.twimg.com/profile_images/1100866378586714112/7C-Asgzb_400x400.jpg",
+        "https://blogs.mcgill.ca/caps/files/2012/05/sheryl-sandberg-could-become-one-of-the-wealthiest-self-made-women-in-the-world.jpg",
       name: "Jenny Wilson",
     },
     description: "Lorem ipsum dolor sit amet, consectetur",
