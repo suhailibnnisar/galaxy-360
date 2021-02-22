@@ -7,6 +7,7 @@ interface Props {
   customOptions?: any[];
   defaultValue?: string;
   className?: string;
+  showImage?: boolean;
 }
 
 const Select: React.FC<Props> = ({
@@ -15,6 +16,7 @@ const Select: React.FC<Props> = ({
   width,
   label,
   customOptions,
+  showImage,
 }) => {
   const [toggle, setToggle] = useState(false);
   const [selected, setSelected] = useState(null);
@@ -80,13 +82,25 @@ const Select: React.FC<Props> = ({
                   <li
                     id={`listbox-option-${i}`}
                     role="option"
-                    className="text-gray-900 cursor-pointer select-none relative py-2 pl-3 pr-9 :hover-bg-geekBlue-600"
+                    className="text-gray-900 cursor-pointer select-none relative py-2 pl-3 pr-9 :hover-bg-geekBlue-600 flex flex-row"
                     onClick={() => {
                       setSelected(i);
                       setToggle(false);
                     }}
                   >
-                    <span className="font-normal block">{option}</span>
+                    {showImage && (
+                      <img
+                        src={
+                          option.image ||
+                          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=mR7Mc7kSlc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        }
+                        alt=""
+                        className="flex-shrink-0 h-6 w-6 rounded-full"
+                      />
+                    )}
+                    <span className="font-normal block ml-3">
+                      {showImage ? option.value : option}
+                    </span>
                     {selected === i && (
                       <span className="text-geekBlue-600 absolute inset-y-0 right-0 flex items-center pr-4">
                         <svg

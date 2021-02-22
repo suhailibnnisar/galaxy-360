@@ -120,17 +120,15 @@ const MainLayout: React.FC = ({ children }) => {
                     {/* Heroicon name: outline/calendar */}
                     <svg
                       className="text-gray-400 group-hover:text-gray-300 mr-4 h-6 w-6"
-                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 18 12"
                       fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M17.0481 0.351472C17.5168 0.820101 17.5168 1.5799 17.0481 2.04853L7.44814 11.6485C6.97951 12.1172 6.21971 12.1172 5.75108 11.6485L0.951081 6.84853C0.482452 6.3799 0.482452 5.6201 0.951081 5.15147C1.41971 4.68284 2.17951 4.68284 2.64814 5.15147L6.59961 9.10294L15.3511 0.351472C15.8197 -0.117157 16.5795 -0.117157 17.0481 0.351472Z"
+                        fill="#A6C8FF"
                       />
                     </svg>
                     Tasks
@@ -297,15 +295,13 @@ const MainLayout: React.FC = ({ children }) => {
                     <a className="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                       {/* Heroicon name: outline/calendar */}
                       <svg
-                        className="text-gray-400 group-hover:text-gray-300 mr-3 h-6 w-6"
-                        width="18"
-                        height="12"
+                        className="text-gray-400 group-hover:text-gray-300 mr-4 h-6 w-6"
                         viewBox="0 0 18 12"
-                        fill="currentColor"
+                        fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        stroke="currentColor"
                       >
                         <path
+                          fill="currentColor"
                           fill-rule="evenodd"
                           clip-rule="evenodd"
                           d="M17.0481 0.351472C17.5168 0.820101 17.5168 1.5799 17.0481 2.04853L7.44814 11.6485C6.97951 12.1172 6.21971 12.1172 5.75108 11.6485L0.951081 6.84853C0.482452 6.3799 0.482452 5.6201 0.951081 5.15147C1.41971 4.68284 2.17951 4.68284 2.64814 5.15147L6.59961 9.10294L15.3511 0.351472C15.8197 -0.117157 16.5795 -0.117157 17.0481 0.351472Z"

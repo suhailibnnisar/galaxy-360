@@ -1,10 +1,39 @@
 import { Transition } from "@tailwindui/react";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 interface Props {
   changePage: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   handleModalClose: any;
 }
+
+const personsList = [
+  {
+    value: "Deve Webb",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=mR7Mc7kSlc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  },
+  {
+    value: "Devon Webb",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=mR7Mc7kSlc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  },
+  {
+    value: "Sheldon Cooper",
+    image:
+      "https://img.jakpost.net/c/2017/03/04/2017_03_04_22796_1488609941._large.jpg",
+  },
+  {
+    value: "Hari Kumar Khati",
+    image:
+      "https://static.theceomagazine.net/wp-content/uploads/2019/11/21091251/Hari-Kumar-Parameshwar_MGCJV.jpg",
+  },
+];
+
+const variants = {
+  visible: { opacity: 1, x: 0 },
+  hidden: { opacity: 0, x: -100 },
+};
 
 export const closeIcon = (
   <div className="cursor-pointer">
@@ -52,13 +81,31 @@ const Label = ({ icon, text, htmlFor }) => {
   );
 };
 
+const RightLabel = ({ icon, text }) => {
+  const [selected, setSelected] = useState(false);
+  return (
+    <button
+      className="relative flex flex-row items-center w-full p-6 border-solid border-gray-200 focus:outline-none"
+      style={{ background: "#f8fafc", borderBottomWidth: "1px" }}
+      onFocus={() => setSelected(true)}
+      onBlur={() => setSelected(false)}
+    >
+      {icon}
+      <p className="ml-2 mr-auto text-sm leading-5 font-normal text-gray-500">
+        {text}
+      </p>
+      {downIcon}
+    </button>
+  );
+};
+
 const TaskFormInitialize: React.FC<Props> = ({
   changePage,
   handleModalClose,
 }) => {
   return (
     <div
-      className="bg-white flex flex-col p-6 rounded-md m-3.5 __xeromi_task-add--popup"
+      className="bg-white flex flex-col p-6 rounded-md m-3.5"
       style={{ width: "fit-content" }}
     >
       <div className="flex flex-row w-96 items-center justify-between mb-6">
@@ -122,7 +169,7 @@ export const FilledTaskFormDetail: React.FC<{ setVisible: any }> = ({
 
   return (
     <div
-      className="bg-white pt-6 w-full rounded-lg overflow-hidden __xeromi_task-add--popup"
+      className="bg-white pt-6 w-full rounded-lg overflow-hidden"
       style={{ width: "50.5rem" }}
     >
       <div className="flex flex-row items-center justify-between pb-6 px-6 shadow-sm">
@@ -665,9 +712,13 @@ const TaskFormDetail: React.FC<Props> = ({ changePage, handleModalClose }) => {
   const [toggleCategory, setToggleCategory] = useState(false);
 
   return (
-    <div
-      className="bg-white pt-6 w-full rounded-lg overflow-hidden __xeromi_task-add--popup"
+    <motion.div
+      className="bg-white pt-6 w-full rounded-lg overflow-hidden"
       style={{ width: "50.5rem" }}
+      initial="hidden"
+      animate="visible"
+      variants={variants}
+      transition={{ duration: 0.35 }}
     >
       <div className="flex flex-row items-center justify-between pb-6 px-6 shadow-sm">
         <div className="flex flex-row items-center">
@@ -680,136 +731,136 @@ const TaskFormDetail: React.FC<Props> = ({ changePage, handleModalClose }) => {
               Complete
             </button>
           </div>
-          <div className="flex flex-row items-center  mr-6">
-            <div className=" mr-1">
-              <img
-                className="h-7 w-7 rounded-full"
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=mR7Mc7kSlc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
-            </div>
-            <div className="flex-1 min-w-0 mr-4">
-              <a href="#" className="focus:outline-none">
-                <p className="text-xs font-normal leading-4 text-gray-400">
-                  Assigned to
-                </p>
-                <p className="text-xs font-medium leading-4 text-gray-500 truncate">
-                  Deve Webb
-                </p>
-              </a>
-            </div>
-            <div className="relative">
-              <button
-                className="cursor-pointer border-none outline-none focus:outline-none"
-                onFocus={() => setTogglePerson(!togglePerson)}
-                onBlur={() => setTogglePerson(false)}
-              >
-                {downIcon}
-              </button>
-              <Transition
-                show={togglePerson}
-                enter="transition ease-out duration-100"
-                enterFrom="transform opacity-0 scale-95"
-                enterTo="transform opacity-100 scale-100"
-                leave="transition ease-in duration-75"
-                leaveFrom="transform opacity-100 scale-100"
-                leaveTo="transform opacity-0 scale-95"
-              >
-                <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
-                  <div
-                    className="py-1"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="options-menu"
-                  >
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                      role="menuitem"
-                    >
-                      Devon Webb
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                      role="menuitem"
-                    >
-                      Tanya Fox
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                      role="menuitem"
-                    >
-                      Helen Schmidt
-                    </a>
-                  </div>
+          <div className="flex flex-row items-center relative  mr-6">
+            <button
+              className="flex flex-row items-center cursor-pointer border-none outline-none focus:outline-none"
+              onFocus={() => setTogglePerson(!togglePerson)}
+              onBlur={() => setTogglePerson(false)}
+            >
+              <div className=" mr-1">
+                <img
+                  className="h-7 w-7 rounded-full"
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=mR7Mc7kSlc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+              </div>
+              <div className="flex-1 min-w-0 mr-4">
+                <a href="#" className="focus:outline-none">
+                  <p className="text-xs font-normal leading-4 text-gray-400">
+                    Assigned to
+                  </p>
+                  <p className="text-xs font-medium leading-4 text-gray-500 truncate">
+                    Deve Webb
+                  </p>
+                </a>
+              </div>
+
+              {downIcon}
+            </button>
+            <Transition
+              show={togglePerson}
+              enter="transition ease-out duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
+            >
+              <div className="origin-top-right absolute right-0 mt-4 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+                <div
+                  className="py-1"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="options-menu"
+                >
+                  {personsList.map((person) => {
+                    return (
+                      <a
+                        href="#"
+                        className="flex flex-row px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem"
+                      >
+                        <img
+                          src={
+                            person.image ||
+                            "https://blogs.mcgill.ca/caps/files/2012/05/sheryl-sandberg-could-become-one-of-the-wealthiest-self-made-women-in-the-world.jpg"
+                          }
+                          alt=""
+                          className="flex-shrink-0 h-6 w-6 mr-2 rounded-full"
+                        />
+                        <span>{person.value}</span>
+                      </a>
+                    );
+                  })}
                 </div>
-              </Transition>
-            </div>
+              </div>
+            </Transition>
           </div>
-          <div className="flex flex-row items-center  mr-6">
-            <span className="inline-flex items-center justify-center h-7 w-7 rounded-full bg-gray-500 mr-1">
-              <span className="text-xs font-medium leading-none text-white">
-                F
+          <div className="flex flex-row items-center  relative mr-6">
+            <button
+              className="flex flex-row items-center cursor-pointer border-none outline-none focus:outline-none"
+              onFocus={() => setToggleCategory(!toggleCategory)}
+              onBlur={() => setToggleCategory(false)}
+            >
+              <span className="inline-flex items-center justify-center h-7 w-7 rounded-full bg-gray-500 mr-1">
+                <span className="text-xs font-medium leading-none text-white">
+                  F
+                </span>
               </span>
-            </span>
-            <div className="flex-1 min-w-0 mr-4">
-              <a href="#" className="focus:outline-none">
-                <p className="text-xs font-medium leading-4 text-gray-500 truncate">
-                  Finance
-                </p>
-              </a>
-            </div>
-            <div className="relative">
-              <button
-                className="cursor-pointer border-none outline-none focus:outline-none"
-                onFocus={() => setToggleCategory(!toggleCategory)}
-                onBlur={() => setToggleCategory(false)}
-              >
+              <div className="flex-1 min-w-0 mr-4">
+                <a href="#" className="focus:outline-none">
+                  <p className="text-xs font-medium leading-4 text-gray-500 truncate">
+                    Finance
+                  </p>
+                </a>
+              </div>
+              <div className="relative">
                 {downIcon}
-              </button>
-              <Transition
-                show={toggleCategory}
-                enter="transition ease-out duration-100"
-                enterFrom="transform opacity-0 scale-95"
-                enterTo="transform opacity-100 scale-100"
-                leave="transition ease-in duration-75"
-                leaveFrom="transform opacity-100 scale-100"
-                leaveTo="transform opacity-0 scale-95"
-              >
-                <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
-                  <div
-                    className="py-1"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="options-menu"
-                  >
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                      role="menuitem"
+                <Transition
+                  show={toggleCategory}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <div className="origin-top-right absolute right-0 mt-4 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+                    <div
+                      className="py-1"
+                      role="menu"
+                      aria-orientation="vertical"
+                      aria-labelledby="options-menu"
                     >
-                      Finance
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                      role="menuitem"
-                    >
-                      Education
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                      role="menuitem"
-                    >
-                      Documentation
-                    </a>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem"
+                        onClick={() => setToggleCategory(false)}
+                      >
+                        Finance
+                      </a>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem"
+                        onClick={() => setToggleCategory(false)}
+                      >
+                        Education
+                      </a>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem"
+                        onClick={() => setToggleCategory(false)}
+                      >
+                        Documentation
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </Transition>
-            </div>
+                </Transition>
+              </div>
+            </button>
           </div>
         </div>
         <div className="inline-block" onClick={handleModalClose}>
@@ -1091,126 +1142,109 @@ const TaskFormDetail: React.FC<Props> = ({ changePage, handleModalClose }) => {
               <path
                 d="M5.66667 4.83333V1.5M12.3333 4.83333V1.5M4.83333 8.16667H13.1667M3.16667 16.5H14.8333C15.7538 16.5 16.5 15.7538 16.5 14.8333V4.83333C16.5 3.91286 15.7538 3.16667 14.8333 3.16667H3.16667C2.24619 3.16667 1.5 3.91286 1.5 4.83333V14.8333C1.5 15.7538 2.24619 16.5 3.16667 16.5Z"
                 stroke="#9CA3AF"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
+
             <p className="ml-2 mr-auto text-sm leading-5 font-normal text-gray-500">
               Due date
             </p>
             {downIcon}
           </div>
-          <div
-            className="flex flex-row items-center w-full p-6 border-solid border-gray-200"
-            style={{ background: "#f8fafc", borderBottomWidth: "1px" }}
-          >
-            <svg
-              width="17"
-              height="16"
-              viewBox="0 0 17 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15.9414 6.26562C16.332 6.1875 16.625 6.31445 16.8203 6.64648C17.0156 6.95898 16.9961 7.26172 16.7617 7.55469C16.3125 8.12109 15.8145 8.62891 15.2676 9.07812C14.7402 9.52734 14.2617 9.87891 13.832 10.1328C13.4219 10.3672 12.9922 10.582 12.543 10.7773C12.0938 10.9531 11.791 11.0703 11.6348 11.1289C11.4785 11.168 11.3418 11.1973 11.2246 11.2168C9.7793 11.5293 8.46094 11.7148 7.26953 11.7734C5.53125 11.8711 3.91016 12.418 2.40625 13.4141V15.6406C2.40625 15.7969 2.32812 15.875 2.17188 15.875H1.23438C1.07812 15.875 1 15.7969 1 15.6406V3.98047C0.375 3.6875 0.0625 3.19922 0.0625 2.51562C0.0625 2.06641 0.21875 1.68555 0.53125 1.37305C0.863281 1.04102 1.25391 0.875 1.70312 0.875C2.23047 0.875 2.66016 1.08984 2.99219 1.51953C3.34375 1.94922 3.43164 2.44727 3.25586 3.01367C5.01367 2.91602 6.83984 3.38477 8.73438 4.41992C9.51562 4.83008 10.2773 5.18164 11.0195 5.47461C11.7617 5.76758 12.377 5.97266 12.8652 6.08984C13.373 6.20703 13.8516 6.28516 14.3008 6.32422C14.7695 6.34375 15.1113 6.34375 15.3262 6.32422C15.5605 6.30469 15.7656 6.28516 15.9414 6.26562ZM10.9316 9.83984C12.3379 9.44922 13.5879 8.74609 14.6816 7.73047C12.7285 7.67188 10.5215 6.97852 8.06055 5.65039C6.0293 4.55664 4.14453 4.17578 2.40625 4.50781V11.7734C3.89062 10.9336 5.48242 10.4648 7.18164 10.3672C8.33398 10.3086 9.58398 10.1328 10.9316 9.83984Z"
-                fill="#9CA3AF"
-              />
-            </svg>
 
-            <p className="ml-2 mr-auto text-sm leading-5 font-normal text-gray-500">
-              Priority
-            </p>
-            {downIcon}
-          </div>
-          <div
-            className="flex flex-row items-center w-full p-6 border-solid border-gray-200"
-            style={{ background: "#f8fafc", borderBottomWidth: "1px" }}
-          >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.23656 10.1183C6.40513 9.78179 6.5 9.40197 6.5 9C6.5 8.59803 6.40513 8.21821 6.23656 7.88172M6.23656 10.1183C5.82611 10.9376 4.97874 11.5 4 11.5C2.61929 11.5 1.5 10.3807 1.5 9C1.5 7.61929 2.61929 6.5 4 6.5C4.97874 6.5 5.82611 7.06243 6.23656 7.88172M6.23656 10.1183L11.7634 12.8817M6.23656 7.88172L11.7634 5.11828M11.7634 5.11828C12.1739 5.93757 13.0213 6.5 14 6.5C15.3807 6.5 16.5 5.38071 16.5 4C16.5 2.61929 15.3807 1.5 14 1.5C12.6193 1.5 11.5 2.61929 11.5 4C11.5 4.40197 11.5949 4.78179 11.7634 5.11828ZM11.7634 12.8817C11.5949 13.2182 11.5 13.598 11.5 14C11.5 15.3807 12.6193 16.5 14 16.5C15.3807 16.5 16.5 15.3807 16.5 14C16.5 12.6193 15.3807 11.5 14 11.5C13.0213 11.5 12.1739 12.0624 11.7634 12.8817Z"
-                stroke="#9CA3AF"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            <p className="ml-2 mr-auto text-sm leading-5 font-normal text-gray-500">
-              Related task
-            </p>
-            {downIcon}
-          </div>
-          <div
-            className="flex flex-row items-center w-full p-6 border-solid border-gray-200"
-            style={{ background: "#f8fafc", borderBottomWidth: "1px" }}
-          >
-            <svg
-              width="14"
-              height="18"
-              viewBox="0 0 14 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10.3337 4.83333C10.3337 6.67428 8.84128 8.16667 7.00033 8.16667C5.15938 8.16667 3.66699 6.67428 3.66699 4.83333C3.66699 2.99238 5.15938 1.5 7.00033 1.5C8.84128 1.5 10.3337 2.99238 10.3337 4.83333Z"
-                stroke="#9CA3AF"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M7.00033 10.667C3.77866 10.667 1.16699 13.2787 1.16699 16.5003H12.8337C12.8337 13.2787 10.222 10.667 7.00033 10.667Z"
-                stroke="#9CA3AF"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-
-            <p className="ml-2 mr-auto text-sm leading-5 font-normal text-gray-500">
-              For student
-            </p>
-            {downIcon}
-          </div>
-          <div
-            className="flex flex-row items-center w-full p-6 border-solid border-gray-200"
-            style={{ background: "#f8fafc", borderBottomWidth: "1px" }}
-          >
-            <svg
-              width="16"
-              height="18"
-              viewBox="0 0 16 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.7137 12.8807C11.9862 13.6083 10.5186 15.0758 9.41311 16.1813C8.63206 16.9624 7.36726 16.9623 6.58621 16.1813C5.5006 15.0957 4.06013 13.6552 3.28563 12.8807C0.682134 10.2772 0.682134 6.05612 3.28563 3.45262C5.88912 0.849126 10.1102 0.849126 12.7137 3.45262C15.3172 6.05612 15.3172 10.2772 12.7137 12.8807Z"
-                stroke="#9CA3AF"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M10.4997 8.16667C10.4997 9.54738 9.38039 10.6667 7.99967 10.6667C6.61896 10.6667 5.49967 9.54738 5.49967 8.16667C5.49967 6.78596 6.61896 5.66667 7.99967 5.66667C9.38039 5.66667 10.4997 6.78596 10.4997 8.16667Z"
-                stroke="#9CA3AF"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-
-            <p className="ml-2 mr-auto text-sm leading-5 font-normal text-gray-500">
-              Branch
-            </p>
-            {downIcon}
-          </div>
+          <RightLabel
+            icon={
+              <svg
+                width="17"
+                height="16"
+                viewBox="0 0 17 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.9414 6.26562C16.332 6.1875 16.625 6.31445 16.8203 6.64648C17.0156 6.95898 16.9961 7.26172 16.7617 7.55469C16.3125 8.12109 15.8145 8.62891 15.2676 9.07812C14.7402 9.52734 14.2617 9.87891 13.832 10.1328C13.4219 10.3672 12.9922 10.582 12.543 10.7773C12.0938 10.9531 11.791 11.0703 11.6348 11.1289C11.4785 11.168 11.3418 11.1973 11.2246 11.2168C9.7793 11.5293 8.46094 11.7148 7.26953 11.7734C5.53125 11.8711 3.91016 12.418 2.40625 13.4141V15.6406C2.40625 15.7969 2.32812 15.875 2.17188 15.875H1.23438C1.07812 15.875 1 15.7969 1 15.6406V3.98047C0.375 3.6875 0.0625 3.19922 0.0625 2.51562C0.0625 2.06641 0.21875 1.68555 0.53125 1.37305C0.863281 1.04102 1.25391 0.875 1.70312 0.875C2.23047 0.875 2.66016 1.08984 2.99219 1.51953C3.34375 1.94922 3.43164 2.44727 3.25586 3.01367C5.01367 2.91602 6.83984 3.38477 8.73438 4.41992C9.51562 4.83008 10.2773 5.18164 11.0195 5.47461C11.7617 5.76758 12.377 5.97266 12.8652 6.08984C13.373 6.20703 13.8516 6.28516 14.3008 6.32422C14.7695 6.34375 15.1113 6.34375 15.3262 6.32422C15.5605 6.30469 15.7656 6.28516 15.9414 6.26562ZM10.9316 9.83984C12.3379 9.44922 13.5879 8.74609 14.6816 7.73047C12.7285 7.67188 10.5215 6.97852 8.06055 5.65039C6.0293 4.55664 4.14453 4.17578 2.40625 4.50781V11.7734C3.89062 10.9336 5.48242 10.4648 7.18164 10.3672C8.33398 10.3086 9.58398 10.1328 10.9316 9.83984Z"
+                  fill="#9CA3AF"
+                />
+              </svg>
+            }
+            text="Priority"
+          />
+          <RightLabel
+            icon={
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.23656 10.1183C6.40513 9.78179 6.5 9.40197 6.5 9C6.5 8.59803 6.40513 8.21821 6.23656 7.88172M6.23656 10.1183C5.82611 10.9376 4.97874 11.5 4 11.5C2.61929 11.5 1.5 10.3807 1.5 9C1.5 7.61929 2.61929 6.5 4 6.5C4.97874 6.5 5.82611 7.06243 6.23656 7.88172M6.23656 10.1183L11.7634 12.8817M6.23656 7.88172L11.7634 5.11828M11.7634 5.11828C12.1739 5.93757 13.0213 6.5 14 6.5C15.3807 6.5 16.5 5.38071 16.5 4C16.5 2.61929 15.3807 1.5 14 1.5C12.6193 1.5 11.5 2.61929 11.5 4C11.5 4.40197 11.5949 4.78179 11.7634 5.11828ZM11.7634 12.8817C11.5949 13.2182 11.5 13.598 11.5 14C11.5 15.3807 12.6193 16.5 14 16.5C15.3807 16.5 16.5 15.3807 16.5 14C16.5 12.6193 15.3807 11.5 14 11.5C13.0213 11.5 12.1739 12.0624 11.7634 12.8817Z"
+                  stroke="#9CA3AF"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            }
+            text="Related task"
+          />
+          <RightLabel
+            icon={
+              <svg
+                width="14"
+                height="18"
+                viewBox="0 0 14 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.3337 4.83333C10.3337 6.67428 8.84128 8.16667 7.00033 8.16667C5.15938 8.16667 3.66699 6.67428 3.66699 4.83333C3.66699 2.99238 5.15938 1.5 7.00033 1.5C8.84128 1.5 10.3337 2.99238 10.3337 4.83333Z"
+                  stroke="#9CA3AF"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M7.00033 10.667C3.77866 10.667 1.16699 13.2787 1.16699 16.5003H12.8337C12.8337 13.2787 10.222 10.667 7.00033 10.667Z"
+                  stroke="#9CA3AF"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            }
+            text="For student"
+          />
+          <RightLabel
+            icon={
+              <svg
+                width="16"
+                height="18"
+                viewBox="0 0 16 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.7137 12.8807C11.9862 13.6083 10.5186 15.0758 9.41311 16.1813C8.63206 16.9624 7.36726 16.9623 6.58621 16.1813C5.5006 15.0957 4.06013 13.6552 3.28563 12.8807C0.682134 10.2772 0.682134 6.05612 3.28563 3.45262C5.88912 0.849126 10.1102 0.849126 12.7137 3.45262C15.3172 6.05612 15.3172 10.2772 12.7137 12.8807Z"
+                  stroke="#9CA3AF"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M10.4997 8.16667C10.4997 9.54738 9.38039 10.6667 7.99967 10.6667C6.61896 10.6667 5.49967 9.54738 5.49967 8.16667C5.49967 6.78596 6.61896 5.66667 7.99967 5.66667C9.38039 5.66667 10.4997 6.78596 10.4997 8.16667Z"
+                  stroke="#9CA3AF"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            }
+            text="Branch"
+          />
           <div
             className="flex flex-col items-center w-full h-full p-6 border-solid border-gray-200"
             style={{ background: "#f8fafc", borderBottomWidth: "1px" }}
@@ -1234,7 +1268,7 @@ const TaskFormDetail: React.FC<Props> = ({ changePage, handleModalClose }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -1244,15 +1278,17 @@ const index: React.FC<{ handleModalClose: any }> = ({ handleModalClose }) => {
   return (
     <>
       {page === "FIRST" ? (
-        <TaskFormInitialize
-          handleModalClose={() => {
-            handleModalClose();
-            setPage("FIRST");
-          }}
-          changePage={() => {
-            setPage("LAST");
-          }}
-        />
+        <motion.div initial="hidden" animate="visible" variants={variants}>
+          <TaskFormInitialize
+            handleModalClose={() => {
+              handleModalClose();
+              setPage("FIRST");
+            }}
+            changePage={() => {
+              setPage("LAST");
+            }}
+          />
+        </motion.div>
       ) : (
         <TaskFormDetail
           handleModalClose={() => {
