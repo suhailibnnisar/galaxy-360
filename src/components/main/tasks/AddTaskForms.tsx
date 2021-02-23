@@ -31,8 +31,8 @@ const personsList = [
 ];
 
 const variants = {
-  visible: { opacity: 1, x: 0 },
-  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1 },
+  hidden: { opacity: 0 },
 };
 
 export const closeIcon = (
@@ -718,7 +718,7 @@ const TaskFormDetail: React.FC<Props> = ({ changePage, handleModalClose }) => {
       initial="hidden"
       animate="visible"
       variants={variants}
-      transition={{ duration: 0.35 }}
+      transition={{ duration: 0.25 }}
     >
       <div className="flex flex-row items-center justify-between pb-6 px-6 shadow-sm">
         <div className="flex flex-row items-center">
@@ -1278,7 +1278,7 @@ const index: React.FC<{ handleModalClose: any }> = ({ handleModalClose }) => {
   return (
     <>
       {page === "FIRST" ? (
-        <motion.div initial="hidden" animate="visible" variants={variants}>
+        <div>
           <TaskFormInitialize
             handleModalClose={() => {
               handleModalClose();
@@ -1288,7 +1288,7 @@ const index: React.FC<{ handleModalClose: any }> = ({ handleModalClose }) => {
               setPage("LAST");
             }}
           />
-        </motion.div>
+        </div>
       ) : (
         <TaskFormDetail
           handleModalClose={() => {
