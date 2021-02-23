@@ -62,7 +62,7 @@ export const RodalModal: React.FC<Props> = ({
   return (
     <>
       <Rodal
-        duration="300"
+        duration="400"
         className="__xeromi-modal"
         visible={visible}
         animation="slideDown"
@@ -71,6 +71,9 @@ export const RodalModal: React.FC<Props> = ({
         height="100"
         width="100"
         measure="%"
+        customMaskStyles={{
+          background: "#000000aa",
+        }}
         customStyles={{
           height: "fit-content",
           padding: "0",
