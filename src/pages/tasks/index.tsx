@@ -428,13 +428,13 @@ const Tasks: React.FC = () => {
                                     />
                                   </td>
                                   <td className="px-6 whitespace-nowrap">
-                                    <td
+                                    <span
                                       className={`whitespace-nowrap text-sm text-gray-600 ${
                                         item.checked ? "line-through" : ""
                                       }`}
                                     >
                                       {item.name}
-                                    </td>
+                                    </span>
                                   </td>
                                   <td className="px-6 flex justify-center py-4 whitespace-nowrap text-center">
                                     <span
