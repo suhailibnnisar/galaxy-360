@@ -62,6 +62,7 @@ export const RodalModal: React.FC<Props> = ({
   return (
     <>
       <Rodal
+        duration="300"
         className="__xeromi-modal"
         visible={visible}
         animation="slideDown"

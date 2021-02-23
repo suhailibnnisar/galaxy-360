@@ -239,12 +239,26 @@ const Tasks: React.FC = () => {
                 <Select
                   defaultValue="Mike Henry"
                   className="ml-4"
+                  width="w-48"
                   customOptions={[
-                    "Mike Henry",
-                    "John Doe",
-                    "Sannani Awale",
-                    "Hari Kumar Khati",
+                    {
+                      value: "Jenny Wilson",
+                      image:
+                        "https://blogs.mcgill.ca/caps/files/2012/05/sheryl-sandberg-could-become-one-of-the-wealthiest-self-made-women-in-the-world.jpg",
+                    },
+                    {
+                      value: "Devon Webb",
+                      image:
+                        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=mR7Mc7kSlc&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    },
+                    {
+                      value: "Sheldon Cooper",
+                      image:
+                        "https://img.jakpost.net/c/2017/03/04/2017_03_04_22796_1488609941._large.jpg",
+                    },
+                    { value: "Hari Kumar Khati" },
                   ]}
+                  showImage
                 />
               </div>
             </div>
